@@ -1,29 +1,30 @@
 import React from 'react';
+import './Profile.css'
 
 
 const Profile = () => {
-        return (
-                <div className='content'>
-                <div>
-                  <img src='https://zg66.ru/images/2020/07/15/black-sea_obl.jpg'/>
+  return (
+    <div className='content'>
+      <div>
+        <img src='https://zg66.ru/images/2020/07/15/black-sea_obl.jpg' />
+      </div>
+      <div>
+        ava + description
                 </div>
-                <div>
-                  ava + description
+      <div>
+        My post
                 </div>
-                <div>
-                  My post
+      <div>
+        New post
                 </div>
-                <div>
-                  New post
+      <div>
+        post 1
                 </div>
-                <div>
-                  post 1
+      <div>
+        post 2
                 </div>
-                <div>
-                  post 2
-                </div>
-              </div>
-        );
+    </div>
+  );
 }
 
 

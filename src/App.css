@@ -7,21 +7,5 @@
   'b c';
 }
 
-.header {
-  grid-area: a;
-  background-color: antiquewhite;
-}
 
-.header img {
-  height: 20px;
-}
 
-.nav {
-  grid-area: b;
-  background-color: aqua;
-}
-
-.content {
-  grid-area: c;
-  background-color: azure;
-}
