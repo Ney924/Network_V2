@@ -14,10 +14,7 @@ const MyPosts = () => {
         <button>Add post</button>
       </div>
      <Post message='Это мой первый пост' like='5'/>
-     <Post message='Привет, как дела?' like='2'/>
-     <Post/>
-     <Post/>
-      
+     <Post message='Привет, как дела?' like='2'/>      
     </div>
   );
 }
