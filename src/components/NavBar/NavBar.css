@@ -3,8 +3,15 @@
         background-color: aqua;
       }
 
-.item {
-        color: #ffff;
-        font-size: 16px;
+
+.item a {
+        color: rgb(190, 99, 99);
+        font-size: 20px;
         padding-left: 20px;
+        text-decoration: none;
+        
+}
+
+.active-link {
+        color: rgb(235, 243, 243);
 }
