@@ -7,7 +7,7 @@ const MyPosts = () => {
   return (
     <div className='posts'>
       <div>
-        My post
+        <h3>My post</h3>
       </div>
       <div>
         <input></input>
