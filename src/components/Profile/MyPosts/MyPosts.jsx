@@ -5,14 +5,17 @@ import Post from './Posts/Post'
 
 const MyPosts = (props) => {
 
-  let postsElemetnts = props.state.postData.map((post)=> <Post message={post.post} like={post.like}/>)
+  let postsElemetnts = props.posts.postData.map((post)=> <Post message={post.post} like={post.like}/>)
 
   let newPostElement =React.createRef();
 
   let addPost = ()=> {
-    let postMessage = newPostElement.current.value;
-    props.addPost(postMessage);
-    newPostElement.current.value = '';
+    props.addPost();
+  }
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
   }
 
   return (
@@ -21,7 +24,12 @@ const MyPosts = (props) => {
         <h3>My post</h3>
       </div>
       <div>
-        <input ref={newPostElement}></input>
+        <input 
+          placeholder='Добавить пост'
+          ref={newPostElement} 
+          onChange={onPostChange} 
+          value={props.newPostText} 
+        />
         <button onClick={addPost}>Add post</button>
       </div>
         {postsElemetnts}  
