@@ -7,14 +7,21 @@ const MyPosts = (props) => {
 
   let postsElemetnts = props.state.postData.map((post)=> <Post message={post.post} like={post.like}/>)
 
+  let newPostElement =React.createRef();
+
+  let addPost = ()=> {
+    let text = newPostElement.current.value
+    alert(text)
+  }
+
   return (
     <div className='posts'>
       <div>
         <h3>My post</h3>
       </div>
       <div>
-        <input></input>
-        <button>Add post</button>
+        <input ref={newPostElement}></input>
+        <button onClick={addPost}>Add post</button>
       </div>
         {postsElemetnts}  
       </div>
