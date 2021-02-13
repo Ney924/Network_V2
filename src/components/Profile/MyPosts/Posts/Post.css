@@ -1,5 +1,9 @@
 .post {
   color: blue;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
   }
 
 .avatar img {
@@ -8,6 +12,7 @@
 }
 
 .post-message {
-  font-size: 16px;
+  font-size: 20px;
   color: darkblue;
+  font-family: Arial, Helvetica, sans-serif;
 }

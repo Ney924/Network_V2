@@ -3,7 +3,7 @@ let state ={
                 postData: [
                         {id:1, post:'Это мой первый пост', like: 5},
                         {id:2, post:'Привет, как дела?', like: 2},
-                        {id:3, post:'Хуёво, женег нет', like: 10},
+                        {id:3, post:'Хуёво, денег нет', like: 10},
                       ],
         },
         dialogsPage:{

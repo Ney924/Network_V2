@@ -1,6 +1,7 @@
-/* .profile-info {
-        
-} */
+.profile-background img {
+        height: 300px;
+        width: 100%;
+}
 
 .description {
         padding-left: 20px;
