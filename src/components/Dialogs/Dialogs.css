@@ -16,8 +16,10 @@
 
 }
 
-.messages {
-        padding: 20px 0 0 20px;
-        display: grid;
-        grid-template-rows: 8fr 2fr;
+.message-block {
+        border-left: 1px solid rgb(161, 145, 145);
+}
+
+.add-message {
+        padding-left: 20px;
 }

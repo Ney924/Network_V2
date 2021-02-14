@@ -1,0 +1,10 @@
+.message-item {
+        padding: 15px 0 10px 20px;
+        margin: 10px;
+        display: grid;
+        grid-template-rows: 8fr 2fr;
+        background-color: rgb(224, 224, 224);
+        width: 300px;
+        border-radius: 5px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
