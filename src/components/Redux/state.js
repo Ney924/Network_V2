@@ -1,3 +1,9 @@
+let ADD_POST = 'ADD-POST';
+let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+let ADD_MESSAGE = 'ADD-MESSAGE';
+let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
+
 let store = {
         _state: {
                 profilePage:{
@@ -26,15 +32,17 @@ let store = {
                         newMessageText: '',
                 }
         },
-        getState() {
-                return this._state
-        },
         _callSudscriber() {
                 console.log('state bla bla')
+        },
+
+        getState() {
+                return this._state
         },
         subscribe(observer) {
                 this._callSudscriber = observer;
         },
+
         dispatch(action) {
                 if (action.type === 'ADD-POST') {
                         let newPost = {
@@ -65,12 +73,37 @@ let store = {
                         this._state.dialogsPage.newMessageText = action.newTextMessage;
                         this._callSudscriber(this._state);
                 }
-        },
+        },   
 }
 
 export default store; 
 
+export let addPostActionCreator = () => {
+  return {
+    type: ADD_POST, 
+  }
+}
 
+export let onPostChangeActionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT, 
+    newText: text,
+  }
+}
+
+export let addMessageAtionCreator = () => {
+        return {
+                type: ADD_MESSAGE,
+        }
+}
+
+
+export let onMessageChangeActionCreator = (text) => {
+        return {
+                type: UPDATE_NEW_MESSAGE_TEXT, 
+                newTextMessage: text
+        }
+}
 
 /* addPost() {
                 let newPost = {
