@@ -29,7 +29,50 @@ let store = {
         getState() {
                 return this._state
         },
-        addPost() {
+        _callSudscriber() {
+                console.log('state bla bla')
+        },
+        subscribe(observer) {
+                this._callSudscriber = observer;
+        },
+        dispatch(action) {
+                if (action.type === 'ADD-POST') {
+                        let newPost = {
+                                id: 5,
+                                post: this._state.profilePage.newPostText ,
+                                like: 0,
+                        } 
+                        this._state.profilePage.postData.push(newPost);
+                        this._state.profilePage.newPostText='';
+                        
+                        this._callSudscriber(this._state); 
+                }
+                else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+                        this._state.profilePage.newPostText = action.newText;
+                        this._callSudscriber(this._state);
+                }
+                else if (action.type === 'ADD-MESSAGE'){
+                        let newMessage = {
+                                id: 5,
+                                message: this._state.dialogsPage.newMessageText,
+                        } 
+                        this._state.dialogsPage.messagesData.push(newMessage);
+                        this._state.dialogsPage.messagesData ='';
+                        
+                        this._callSudscriber(this._state);
+                }
+                else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+                        this._state.dialogsPage.newMessageText = action.newTextMessage;
+                        this._callSudscriber(this._state);
+                }
+        },
+}
+
+export default store; 
+
+
+
+/* addPost() {
                 let newPost = {
                         id: 5,
                         post: this._state.profilePage.newPostText ,
@@ -57,13 +100,4 @@ let store = {
         updateNewMessageText(newTextMessage) {
                 this._state.dialogsPage.newMessageText = newTextMessage;
                 this._callSudscriber(this._state);
-        },
-        _callSudscriber() {
-                console.log('state bla bla')
-        },
-        subscribe(observer) {
-                this._callSudscriber = observer;
-        },
-}
-
-export default store; 
+        }, */
