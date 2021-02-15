@@ -22,8 +22,9 @@ let state ={
                         {id: 1, message: 'Привет'},
                         {id: 2, message: 'Как дела'},
                         {id: 3, message: 'Учу ссучий реакт'},
-                        {id: 4, message: 'да, пердак то горит'}
+                        {id: 4, message: 'да, пердак то горит'},
                 ],
+                newMessageText: '',
         }
 }
 
@@ -43,5 +44,22 @@ export let updateNewPostText = (newText) => {
          state.profilePage.newPostText = newText;
         rerenderEntireTree(state);
 }
+
+export let addMessage = () => {
+        let newMessage = {
+                id: 5,
+                message: state.dialogsPage.newMessageText,
+        } 
+        state.dialogsPage.messagesData.push(newMessage);
+        state.dialogsPage.messagesData ='';
+        
+        rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newTextMessage) => {
+        state.dialogsPage.newMessageText = newTextMessage;
+       rerenderEntireTree(state);
+}
+
 
 export default state; 

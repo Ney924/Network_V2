@@ -5,16 +5,19 @@ import MessageItem from './MessageItem/MessageItem'
 
 const Dialogs = (props) => {
 
-        let dialogsElemets = props.state.dialogsData.map((dialog)=> <DialogsItem name={dialog.name} id={dialog.id}/>)
-        let messageElements = props.state.messagesData.map((messsage)=> <MessageItem message={messsage.message}/>)
+        let dialogsElemets = props.dialogsPage.dialogsData.map((dialog)=> <DialogsItem name={dialog.name} id={dialog.id}/>)
+        let messageElements = props.dialogsPage.messagesData.map((message)=> <MessageItem message={message.message}/>)
 
-        let newMessageElement = React.createRef()
+        let newMessageElement = React.createRef();
 
         let addMessage = () => {
-                let textMessage = newMessageElement.current.value
-                alert(textMessage)
+                props.addMessage();
         }
         
+        let onMessageChange = () => {
+                let text = newMessageElement.current.value
+                props.updateNewMessageText(text);
+        }
 
         return(
                 <div className='dialogs'>
@@ -27,7 +30,13 @@ const Dialogs = (props) => {
                                         {messageElements}
                                 </div>
                                 <div className='add-message'>
-                                        <input ref={newMessageElement} placeholder='Введите сообщение'></input>
+                                        <input 
+                                                placeholder='Введите сообщение'
+                                                ref={newMessageElement} 
+                                                onChange={onMessageChange}
+                                                value={props.newMessageText}
+                                        />
+                                                
                                         <button onClick={addMessage}>Отправить</button>
                                 </div>
                         </div>
