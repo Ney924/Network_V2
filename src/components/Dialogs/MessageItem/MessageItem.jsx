@@ -4,7 +4,7 @@ import './MessageItem.css';
 const MessageItem = (props) => {
         return (
                 <div className='messages'>
-                        <div className='message-item'>{props.message}</div>
+                        <span className='message-item'>{props.message}</span>
                 </div>
                
                 

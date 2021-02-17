@@ -28,6 +28,7 @@ const App = (props) => {
           render={ ()=> <Dialogs 
             dispatch={props.dispatch}
             dialogsPage={props.state.dialogsPage}
+            
           />}
         />
         <Route path='/news' component={News}/>
