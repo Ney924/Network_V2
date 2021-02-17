@@ -1,8 +1,5 @@
-let ADD_POST = 'ADD-POST';
-let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-let SEND_MESSAGE = 'SEND-MESSAGE';
-let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
 
 let store = {
         _state: {
@@ -44,66 +41,14 @@ let store = {
                 this._callSudscriber = observer;
         },
 
-
         dispatch(action) {
-                if (action.type === 'ADD-POST') {
-                        let newPost = {
-                                id: 5,
-                                post: this._state.profilePage.newPostText ,
-                                like: 0,
-                        } 
-                        this._state.profilePage.postData.push(newPost);
-                        this._state.profilePage.newPostText='';
-                        this._callSudscriber(this._state); 
-                }
-
-                else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-                        this._state.profilePage.newPostText = action.newText;
-                        this._callSudscriber(this._state);
-                }
-
-                else if (action.type === 'SEND-MESSAGE'){
-                        let newMessage = {
-                                id: 5,
-                                message: this._state.dialogsPage.newMessageText,
-                        } 
-                        this._state.dialogsPage.messagesData.push(newMessage);
-                        //this._state.dialogsPage.newMessageText='';
-                        this._callSudscriber(this._state);
-                }
-
-                else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-                        this._state.dialogsPage.newMessageText = action.newTextMessage;
-                        this._callSudscriber(this._state);
-                }
+                this._state.profilePage=profileReducer(this._state.profilePage, action)
+                this._state.dialogsPage=dialogsReducer(this._state.dialogsPage, action)
+                this._callSudscriber(this._state); 
         },   
 }
 
 export default store; 
-
-
-export let addPostActionCreator = () => {
-  return {
-    type: ADD_POST, 
-  }
-}
-export let onPostChangeActionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT, 
-    newText: text,
-  }
-}
-export let addMessageAtionCreator = () => {
-        return {
-                type: SEND_MESSAGE,
-        }
-}
-export let onMessageChangeActionCreator = (text) => {
-        return {
-                type: UPDATE_NEW_MESSAGE_TEXT, 
-                newTextMessage: text,
-        }
-}
 
 /* addPost() {
                 let newPost = {
@@ -134,3 +79,34 @@ export let onMessageChangeActionCreator = (text) => {
                 this._state.dialogsPage.newMessageText = newTextMessage;
                 this._callSudscriber(this._state);
         }, */
+
+         /* if (action.type === 'ADD-POST') {
+                        let newPost = {
+                                id: 5,
+                                post: this._state.profilePage.newPostText ,
+                                like: 0,
+                        } 
+                        this._state.profilePage.postData.push(newPost);
+                        this._state.profilePage.newPostText='';
+                        this._callSudscriber(this._state); 
+                }
+
+                else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+                        this._state.profilePage.newPostText = action.newText;
+                        this._callSudscriber(this._state);
+                }
+
+                else if (action.type === 'SEND-MESSAGE'){
+                        let newMessage = {
+                                id: 5,
+                                message: this._state.dialogsPage.newMessageText,
+                        } 
+                        this._state.dialogsPage.messagesData.push(newMessage);
+                        //this._state.dialogsPage.newMessageText='';
+                        this._callSudscriber(this._state);
+                }
+
+                else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+                        this._state.dialogsPage.newMessageText = action.newTextMessage;
+                        this._callSudscriber(this._state);
+                } */
