@@ -18,9 +18,9 @@ const App = (props) => {
       <div className='content'>
         <Route 
           path='/profile' 
-          render={ ()=> <Profile 
-            profilePage={props.state.profilePage} 
-            dispatch={props.dispatch}
+          render={ ()=> <Profile store={props.store}
+           /*  profilePage={props.state.profilePage}
+            dispatch={props.dispatch} */
           />}
         />
         <Route 

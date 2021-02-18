@@ -12,6 +12,7 @@ let rerenderEntireTree = (state) => {
         <App 
           state={store.getState()} 
           dispatch={store.dispatch.bind(store)}
+          store={store}
         />
       </BrowserRouter>,document.getElementById('root')
   );
