@@ -21,11 +21,6 @@ const Dialogs = (props) => {
                 props.dispatch(onMessageChangeActionCreator(text));
         }
 
-       /*  let onMessageChange = (event) => {
-                let body = event.target.value;
-                props.store.dispatch(onMessageChangeActionCreator(body))
-        }  */
-
         return (
                 <div className='dialogs'>
                        <div className='dialog-items'>
