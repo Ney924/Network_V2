@@ -6,19 +6,17 @@ import Post from './Posts/Post';
 
 const MyPosts = (props) => {
 debugger
-  let postsElemetnts = props.postData.map((post)=> <Post message={post.post} like={post.like}/>)
+  let postsElemetnts = props.profilePage.postData.map((post)=> <Post message={post.post} like={post.like}/>)
 
   let newPostElement =React.createRef();
 
   let onAddPost = ()=> {
     props.addPost();
-    //props.dispatch(addPostActionCreator());
   }
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
-    //props.dispatch(onPostChangeActionCreator(text));
   }
 
   return (
