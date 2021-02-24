@@ -5,15 +5,21 @@ import noAvatar from './../assets/images/no_avatar.png';
 
 
 let Users = (props) => {
-        if (props.usersData.length === 0)
+        
+        let getUsersPage = () => {
+                if (props.usersData.length === 0)
                 {
                         axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
                                 props.setUsers(response.data.items);   
                         })       
         }           
+        }
+        
+        
         
         return (
                 <div> 
+                        <button onClick={getUsersPage}> Users</button>
                         {props.usersData.map(u => 
                                         <div className='users' key={u.id}>
                                                 <div className='users-avatar'>
