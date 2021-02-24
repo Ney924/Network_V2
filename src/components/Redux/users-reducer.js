@@ -30,7 +30,6 @@ const usersReducer = (state = initialState, action) => {
                                 }),
                         } 
                 case SET_USERS: 
-                debugger;
                         return {
                                 ...state, usersData: [...state.usersData, ...action.users]
                         }
@@ -52,7 +51,6 @@ export let unFollowAC = (userId) => {
         }
 }
 export let setUsersAC = (users) => {
-        debugger;
         return {
                 type: SET_USERS,
                 users
