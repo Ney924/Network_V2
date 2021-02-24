@@ -1,6 +1,13 @@
 import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 
+
+//!ЭТОТ ФАЙЛ ОСТАВИЛИ ДЛЯ ПОНИМАНИЯ РАБОТЫ redux
+//!ЭТОТ ФАЙЛ ОСТАВИЛИ ДЛЯ ПОНИМАНИЯ РАБОТЫ redux
+//!ЭТОТ ФАЙЛ ОСТАВИЛИ ДЛЯ ПОНИМАНИЯ РАБОТЫ redux
+//!ЭТОТ ФАЙЛ ОСТАВИЛИ ДЛЯ ПОНИМАНИЯ РАБОТЫ redux
+
+
 let store = {
         _state: {
                 profilePage:{
