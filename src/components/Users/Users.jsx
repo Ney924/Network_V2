@@ -24,7 +24,7 @@ let Users = (props) => {
                         {props.usersData.map(u => 
                                 <div className='users' key={u.id}>
                                         <div className='users-avatar'>
-                                                <div>{u.photos.small !=null ? u.photos.small : noAvatar}</div>
+                                                <div>{u.photos.small == null ? noAvatar: u.photos.small}</div>
                                                 <div>
                                                         {u.follow 
                                                                 ? <button onClick={ ()=> {props.unFollow(u.id)}}>Подписаться</button>
