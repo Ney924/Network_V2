@@ -4,16 +4,24 @@ import * as axios from 'axios';
 import noAvatar from './../assets/images/no_avatar.png';
 
 class Users extends React.Component {
-        constructor(props) {
-                super(props);
-                        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+
+        componentDidMount() {
+                axios.get('https://social-network.samuraijs.com/api/1.0/users')
                         .then( response => {
                                 this.props.setUsers(response.data.items);   
-                        });      
-                   
+                        });
         }
+
         render () {
                 return <div> 
+                        <div>
+                                <button>1</button>
+                                <button>2</button>
+                                <button>3</button>
+                                <button>4</button>
+                                <button>5</button>
+                        </div>
+
                         {this.props.usersData.map(u => 
                                         <div className='users' key={u.id}>
                                                 <div className='users-avatar'>
