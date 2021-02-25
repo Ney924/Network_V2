@@ -1,16 +1,23 @@
 .nav {
         grid-area: b;
-        background-color: rgb(194, 225, 255);
+        background-color: rgb(229, 237, 245);
         padding-top: 20px;
       }
 
 .item {
-        padding-bottom: 20px;
+        display: flex;
+        padding: 10px 0 10px 0;
+        align-items: center;
+        justify-self: center;
 }
 
 
+.item:hover {
+        background-color:  rgba(201, 201, 201, 0.9);;
+}
+
 .item a {
-        color: rgb(190, 99, 99);
+        color:  rgba(65, 65, 65, 0.9);
         font-size: 20px;
         padding-left: 20px;
         text-decoration: none;

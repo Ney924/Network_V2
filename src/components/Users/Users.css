@@ -6,16 +6,17 @@
         font-size: 16px;
         font-family: Arial, Helvetica, sans-serif;
         padding: 10px;
-        border: 1px solid gray;
+        border-bottom: 1px solid gray;
         border-radius: 2px;
         margin: 10px;
         color: rgb(99, 99, 99);
 }
 
 .users img {
-        width: 150px;
+        width: 130px;
         height: 130px;
-        border-radius: 2px;
+        border-radius: 50px;
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .users-name {
@@ -39,8 +40,24 @@
 }
 
 .one-button-page {
-        
         height: 25px;
-        width: 25px;
+        width: 35px;
         margin-left: 5px;
+        border: none;
+        background-color: rgb(185, 185, 185);
+        color: honeydew;
+        border-radius: 5px;
+}
+
+.users-follow-button {
+        margin-left: 20px;
+        margin-top: 10px;
+}
+
+.users-follow-button button {
+        border: none;
+        background-color: rgb(185, 185, 185);
+        color: honeydew;
+        height: 20px;
+        border-radius: 5px;
 }

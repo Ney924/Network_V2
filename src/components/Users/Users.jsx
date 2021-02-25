@@ -29,7 +29,7 @@ let Users = (props) => {
                                                         <img src={u.photos.small}/>
                                                 } 
                                                 </div>
-                                                <div>
+                                                <div className='users-follow-button'>
                                                         {u.follow 
                                                                 ? <button onClick={ ()=> {props.unFollow(u.id)}}>Подписаться</button>
                                                                 : <button onClick={ ()=> {props.follow(u.id)}}>Отписаться</button>

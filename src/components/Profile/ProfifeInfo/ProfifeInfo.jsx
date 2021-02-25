@@ -4,18 +4,26 @@ import './ProfifeInfo.css';
 
 const ProfifeInfo = () => {
         return (
-                <div className='profile-info'>
-                        <div className='profile-background'>
-                                <img src='https://zg66.ru/images/2020/07/15/black-sea_obl.jpg'/>
-                        </div>
+                <div className='profile'>
                         <div className='description'>
-                                ava + description
+                                <img src='https://pbs.twimg.com/profile_images/612140046938959872/OaKOyzpC_400x400.jpg' 
+                                className='ava'
+                                />
+                                <div className='profile-info'>
+                                        <div className='profile-info-name'>Илья Аксенов</div>
+                                        <div className='profile-info-age'>28 лет</div>
+                                        <div className='profile-info-gender'>мужчина</div>
+                                </div>
                         </div>
+                        <div className='profile-status'>
+                        Здесь будет информация о пользователе!
+                        </div>
+                        
                 </div>
         );
 }
 export default ProfifeInfo;
-        
-        
-        
+
+
+//! Нужно сделать крассиво, сейчас хер чего!
         

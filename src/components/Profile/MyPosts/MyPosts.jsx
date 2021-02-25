@@ -22,7 +22,7 @@ const MyPosts = (props) => {
   return (
     <div className='posts'>
       <div>
-        <h3>My post</h3>
+        <h3>Posts users</h3>
       </div>
       <div>
         <input 

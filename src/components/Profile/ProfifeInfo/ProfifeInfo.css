@@ -1,8 +1,51 @@
-.profile-background img {
-        height: 300px;
-        width: 100%;
+.profile-info::before {
+        background-image: url(https://zg66.ru/images/2020/07/15/black-sea_obl.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
 }
 
 .description {
         padding-left: 20px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        width: 600px;
+}
+
+.ava {
+        width: 180px;
+        height: 180px;
+        margin: 20px;
+        border-radius: 50px;
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.profile-info {
+        color: rgb(65, 65, 65);
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        padding: 1rem 0 0 2rem;
+
+}
+
+.profile-info-name {
+        font-size: 24px;
+        padding-top: 20px;
+}
+
+.profile-info-age {
+        font-size: 20px;
+        padding-top: 1rem;
+}
+
+.profile-info-gender {
+        font-size: 16px;
+        padding-top: 1rem;
+}
+
+.profile-status {
+        padding-top: 10px;
+        padding-left: 40px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        color:  rgb(65, 65, 65);
 }
