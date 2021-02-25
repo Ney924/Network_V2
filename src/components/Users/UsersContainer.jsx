@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { followAC, setUsersAC, unFollowAC, setCurrentPageAC, setTotalCountAC, setIsFetchingAC} from '../Redux/users-reducer';
+import { follow, setUsers, unFollow, setCurrentPage, setTotalCount, setIsFetching} from '../Redux/users-reducer';
 import * as axios from 'axios';
 import Users from "./Users";
 import Preloader from '../common/preloader/Preloader';
@@ -52,7 +52,11 @@ let mapStateToProps = (state) => {
         }
 }
 
-let mapDispatchToProps = (dispatch) => {
+export default connect (mapStateToProps, {follow, unFollow, setUsers, setCurrentPage, setTotalCount, setIsFetching,}) (UsersContainer)
+
+
+//! Диспатчи, записаные по старому (может пригодится)
+/*1 let mapDispatchToProps = (dispatch) => {
         return {
                 follow: (userId) => {
                         dispatch(followAC(userId));
@@ -73,7 +77,4 @@ let mapDispatchToProps = (dispatch) => {
                         dispatch(setIsFetchingAC(isFetching));
                 },
         };
-}
-
-export default connect (mapStateToProps, mapDispatchToProps) (UsersContainer)
-
+} */
