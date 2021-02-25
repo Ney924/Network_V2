@@ -6,7 +6,7 @@ let SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 
 let initialState = {
                 usersData: [],
-                pagesSize: 20,
+                pagesSize: 50,
                 totalCount: 0,
                 currentPage: 1,
 };
