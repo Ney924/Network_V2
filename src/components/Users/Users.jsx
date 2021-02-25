@@ -6,20 +6,40 @@ import noAvatar from './../assets/images/no_avatar.png';
 class Users extends React.Component {
 
         componentDidMount() {
-                axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pagesSize}`)
+                        .then( response => {
+                                this.props.setUsers(response.data.items);
+                                this.props.setTotalCount(response.data.totalCount);  
+                        });
+        }
+
+        onPageChanged = (pageNumber) => {
+                this.props.setCurrentPage(pageNumber);
+                axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pagesSize}`)
                         .then( response => {
                                 this.props.setUsers(response.data.items);   
                         });
         }
 
+
         render () {
+
+        let pagesCount = Math.ceil(this.props.totalCount/this.props.pagesSize)
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++ ) {
+                pages.push(i);
+        }
+                debugger;
                 return <div> 
-                        <div>
-                                <button>1</button>
-                                <button>2</button>
-                                <button>3</button>
-                                <button>4</button>
-                                <button>5</button>
+                        <div className='button-page'>
+                                {pages.map(c => {
+                                        
+                                        return <button 
+                                        className='one-button-page'
+                                        onClick={()=> this.onPageChanged(c)}>
+                                                {c}
+                                        </button>
+                                })}
                         </div>
 
                         {this.props.usersData.map(u => 
