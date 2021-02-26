@@ -1,5 +1,6 @@
 let ADD_POST = 'ADD-POST';
 let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+let SET_PROFILE_PAGE = 'SET_PROFILE_PAGE';
 
 let initialState = {
                 postData: [
@@ -8,6 +9,7 @@ let initialState = {
                         {id:3, post:'Хуёво, денег нет', like: 10},
                       ],
                 newPostText: '',
+                profile: null,
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -23,6 +25,11 @@ const profileReducer = (state = initialState, action) => {
                                 ...state,
                                 newPostText: action.newText,
                         }
+                case SET_PROFILE_PAGE:
+                        return {
+                                ...state,
+                                profile: action.profile,
+                        }
                 default:
                         return state;   
         }
@@ -32,12 +39,18 @@ export let addPostActionCreator = () => {
         return {
           type: ADD_POST, 
         }
-      }
-      export let onPostChangeActionCreator = (text) => {
+}
+export let onPostChangeActionCreator = (text) => {  //нужно подправить нейминг
         return {
-          type: UPDATE_NEW_POST_TEXT, 
-          newText: text,
+                type: UPDATE_NEW_POST_TEXT, 
+                newText: text,
         }
-      }
+}
+export let setProfilePage = (profile) => {
+        return {
+                type: SET_PROFILE_PAGE, 
+                profile,
+        }
+}
 
 export default profileReducer;

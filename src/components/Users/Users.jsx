@@ -1,6 +1,7 @@
 import React from 'react';
 import './Users.css';
 import noAvatar from '../image/no_avatar.png';
+import {NavLink} from 'react-router-dom'
 
 let Users = (props) => {
         let pagesCount = Math.ceil(props.totalCount/props.pagesSize)
@@ -24,11 +25,13 @@ let Users = (props) => {
                         {props.usersData.map(u => 
                                 <div className='users' key={u.id}>
                                         <div className='users-avatar'>
-                                                <div> {u.photos.small == null ? 
-                                                        <img src={noAvatar}/> : 
-                                                        <img src={u.photos.small}/>
-                                                } 
-                                                </div>
+                                                <NavLink to={'/profile/' + u.id}>
+                                                        <div> {u.photos.small == null ? 
+                                                                <img src={noAvatar}/> : 
+                                                                <img src={u.photos.small}/>
+                                                                } 
+                                                        </div>
+                                                </NavLink>
                                                 <div className='users-follow-button'>
                                                         {u.follow 
                                                                 ? <button onClick={ ()=> {props.unFollow(u.id)}}>Подписаться</button>

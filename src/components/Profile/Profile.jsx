@@ -7,7 +7,7 @@ import './Profile.css'
 const Profile = (props) => {
   return (
     <div className='content'>
-      <ProfifeInfo/>
+      <ProfifeInfo profile={props.profile}/>
       <MyPostsContainer/>
     </div>
   );

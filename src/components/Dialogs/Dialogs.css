@@ -1,23 +1,25 @@
 .dialogs {
         display: grid;
-        grid-template-columns: 2fr 10fr;
+        grid-template-columns: 200px 10fr;
 }
 
 .dialog-items {
         padding: 20px 0 0 20px;
-
 }
 
 .dialog-items a {
         text-decoration: none;
-        color:darkcyan;
+        color:rgb(53, 79, 119);
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
         display: grid;
         grid-template-rows: repeat(8, min-content);
 
 }
 
 .message-block {
-        border-left: 1px solid rgb(161, 145, 145);
+        background-color: rgb(225, 245, 255);
+        height: 100vh
 }
 
 .add-message {

@@ -42,7 +42,6 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-        debugger;
         return {
                 usersData: state.usersPage.usersData,
                 pagesSize: state.usersPage.pagesSize,
@@ -52,9 +51,18 @@ let mapStateToProps = (state) => {
         }
 }
 
-export default connect (mapStateToProps, {follow, unFollow, setUsers, setCurrentPage, setTotalCount, setIsFetching,}) (UsersContainer)
+export default connect (mapStateToProps, 
+        {follow, unFollow, setUsers, setCurrentPage, setTotalCount, setIsFetching,}) 
+        (UsersContainer)
 
 
+
+
+
+
+
+
+        
 //! Диспатчи, записаные по старому (может пригодится)
 /*1 let mapDispatchToProps = (dispatch) => {
         return {
