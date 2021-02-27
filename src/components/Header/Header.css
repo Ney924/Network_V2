@@ -1,8 +1,31 @@
 .header {
         grid-area: a;
         background-color: rgb(193, 209, 224);
+        display: flex;
       }
       
 .header img {
         height: 60px;
+}
+
+.login-blok {
+        height: 50px;
+        width: 120px;
+}
+
+.login-blok-button {
+        border: none;
+        height: 40px;
+        width: 80px;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(85, 85, 85);
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 50px;
+        margin-top: 10px;
+        border-radius: 20px;
+}
+
+.login-blok-button:hover {
+        background-color: rgb(186, 198, 211);
 }
