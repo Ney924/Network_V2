@@ -2,7 +2,7 @@ import React from 'react';
 import './Users.css';
 import noAvatar from '../image/no_avatar.png';
 import {NavLink} from 'react-router-dom'
-import * as axios from 'axios';
+import { componentAPI } from '../api/api';
 
 let Users = (props) => {
         let pagesCount = Math.ceil(props.totalCount/props.pagesSize)
@@ -36,20 +36,24 @@ let Users = (props) => {
                                                 <div className='users-follow-button'>
                                                         {u.follow 
                                                                 ? <button onClick={ ()=> {
-                                                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {withCredentials: true, headers: {"API-KEY": "785eab70-df14-4fb5-9f9e-100f69f4a368"}})
-                                                                        .then( response => {
-                                                                                if (response.data.resultCode==0) {
-                                                                                        props.unFollow(u.id)  
-                                                                                }
-                                                                        });    
+                                                                                                //axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
+                                                                                                //{withCredentials: true, 
+                                                                                                //headers: {"API-KEY": "785eab70-df14-4fb5-9f9e-100f69f4a368"}})
+                                                                componentAPI.getUsersUnSubscribe(u.id).then(data => {
+                                                                        if (data.resultCode==0) {
+                                                                                props.unFollow(u.id)  
+                                                                        }
+                                                                });    
                                                                 }}>Отписаться</button>
                                                                 : <button onClick={ ()=> {
-                                                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {withCredentials: true, headers: {'API-KEY': '785eab70-df14-4fb5-9f9e-100f69f4a368'}})
-                                                                        .then( response => {
-                                                                                if (response.data.resultCode==0) {
-                                                                                        props.follow(u.id)  
-                                                                                }
-                                                                        });
+                                                                                                //axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
+                                                                                                //{}, 
+                                                                                                //{withCredentials: true, headers: {'API-KEY': '785eab70-df14-4fb5-9f9e-100f69f4a368'}})
+                                                                                componentAPI.getUsersSubscribe(u.id).then(data => {
+                                                                if (data.resultCode==0) {
+                                                                        props.follow(u.id)  
+                                                                }
+                                                                });
                                                                 }}>Подписаться</button>
                                                         }
                                                 </div>
