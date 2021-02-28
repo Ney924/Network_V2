@@ -35,25 +35,25 @@ let Users = (props) => {
                                                 </NavLink>
                                                 <div className='users-follow-button'>
                                                         {u.follow 
-                                                                ? <button onClick={ ()=> {
-                                                                                                //axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
-                                                                                                //{withCredentials: true, 
-                                                                                                //headers: {"API-KEY": "785eab70-df14-4fb5-9f9e-100f69f4a368"}})
-                                                                componentAPI.getUsersUnSubscribe(u.id).then(data => {
+                                                                ? <button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ ()=> {                               
+                                                                props.toggleFollowingProgress(true, u.id)
+                                                                componentAPI.getUsersUnSubscribe(u.id)
+                                                                        .then(data => {
                                                                         if (data.resultCode==0) {
                                                                                 props.unFollow(u.id)  
                                                                         }
+                                                                        props.toggleFollowingProgress(false, u.id)
                                                                 });    
                                                                 }}>Отписаться</button>
-                                                                : <button onClick={ ()=> {
-                                                                                                //axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
-                                                                                                //{}, 
-                                                                                                //{withCredentials: true, headers: {'API-KEY': '785eab70-df14-4fb5-9f9e-100f69f4a368'}})
-                                                                                componentAPI.getUsersSubscribe(u.id).then(data => {
-                                                                if (data.resultCode==0) {
-                                                                        props.follow(u.id)  
-                                                                }
-                                                                });
+                                                                : <button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ ()=> {
+                                                                props.toggleFollowingProgress(true, u.id)
+                                                                componentAPI.getUsersSubscribe(u.id)
+                                                                .then(data => {
+                                                                        if (data.resultCode==0) {
+                                                                                props.follow(u.id)  
+                                                                        }
+                                                                        props.toggleFollowingProgress(false, u.id)
+                                                                        });
                                                                 }}>Подписаться</button>
                                                         }
                                                 </div>
@@ -74,3 +74,15 @@ let Users = (props) => {
 }
 
 export default Users
+
+
+
+
+//axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
+//{withCredentials: true, 
+//headers: {"API-KEY": "785eab70-df14-4fb5-9f9e-100f69f4a368"}})
+
+
+//axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
+//{}, 
+//{withCredentials: true, headers: {'API-KEY': '785eab70-df14-4fb5-9f9e-100f69f4a368'}})
