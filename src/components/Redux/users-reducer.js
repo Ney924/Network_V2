@@ -1,3 +1,5 @@
+import {componentAPI} from '../api/api';
+
 let FOLLOW = 'FOLLOW';
 let UNFOLLOW = 'UNFOLLOW';
 let SET_USERS = 'SET_USERS';
@@ -65,76 +67,61 @@ const usersReducer = (state = initialState, action) => {
         }
 }
 
-export let follow = (userId) => { return { type: FOLLOW, userId } }
-export let unFollow = (userId) => { return { type: UNFOLLOW, userId } }
-export let setUsers = (users) => { return { type: SET_USERS, users } }
-export let setCurrentPage = (currentPage) => { return { type: SET_CURRENT_PAGE, currentPage} }
-export let setTotalCount = (totalCount) => { return { type: SET_TOTAL_COUNT, totalCount} }
-export let setIsFetching = (isFetching) => { return { type: TOGGLE_IS_FETCHING, isFetching} }
-export let toggleFollowingProgress = (isFetching, userId) => { return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId} }
+//!ActionCreators
+export const follow = (userId) => { return { type: FOLLOW, userId } }
+export const unFollow = (userId) => { return { type: UNFOLLOW, userId } }
+export const setUsers = (users) => { return { type: SET_USERS, users } }
+export const setCurrentPage = (currentPage) => { return { type: SET_CURRENT_PAGE, currentPage} }
+export const setTotalCount = (totalCount) => { return { type: SET_TOTAL_COUNT, totalCount} }
+export const setIsFetching = (isFetching) => { return { type: TOGGLE_IS_FETCHING, isFetching} }
+export const toggleFollowingProgress = (isFetching, userId) => { return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId} }
+
+//!ThunkCreator
+export const setUsersTC = (currentPage, pagesSize) => {
+        return (dispatch) => {
+                dispatch(setIsFetching(true)); 
+                componentAPI.getUsersPage(currentPage, pagesSize).then(data => {
+                        dispatch(setIsFetching(false));
+                        dispatch(setUsers(data.items));
+                        dispatch(setTotalCount(data.totalCount));
+                });
+        }
+}
+export const onPageChangedTC = (pageNumber, pagesSize) => {
+        return (dispatch) => {
+                dispatch(setCurrentPage(pageNumber));
+                dispatch(setIsFetching(true));                   
+                componentAPI.getUsersPage(pageNumber, pagesSize).then(data => {
+                        dispatch(setIsFetching(false));
+                        dispatch(setUsers(data.items));   
+                });
+        }
+}
+export const followTC = (id) => {
+        return (dispatch) => {
+                dispatch(toggleFollowingProgress(true, id))
+                componentAPI.getUsersUnSubscribe(id)
+                        .then(data => {
+                        if (data.resultCode==0) {
+                                dispatch(unFollow(id))
+                        }
+                        dispatch(toggleFollowingProgress(false, id))
+                }); 
+        }
+}
+export const unFollowTC = (id) => {
+        return (dispatch) => {
+                dispatch(toggleFollowingProgress(true, id))
+                componentAPI.getUsersUnSubscribe(id)
+                        .then(data => {
+                        if (data.resultCode==0) {
+                                dispatch(follow(id))
+                        }
+                        dispatch(toggleFollowingProgress(false, id))
+                }); 
+        }
+}
+
+
 
 export default usersReducer;
-
-
-
-
-
-
-
-//!usersData
-/* 
-                        {
-                                id: 1, 
-                                fullName: 'Ilya', 
-                                avatarUsers: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FEQjYeVYv86TI-kFJ0T4mu52NIKwfTz50Q&usqp=CAU', 
-                                follow: true, 
-                                statusUsers: 'Зачем я ваще сюда полез',
-                                location: {
-                                        city: 'Moscau',
-                                        country: 'Russian'
-                                },
-                        },
-                        {
-                                id: 2, 
-                                fullName: 'Anna', 
-                                avatarUsers: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FEQjYeVYv86TI-kFJ0T4mu52NIKwfTz50Q&usqp=CAU', 
-                                follow: true, 
-                                statusUsers: 'Чтобы мы с тобой жили как люди',
-                                location: {
-                                        city: 'Moscau',
-                                        country: 'Russian'
-                                },
-                        },
-                        {
-                                id: 3, 
-                                fullName: 'Aleksey', 
-                                avatarUsers: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FEQjYeVYv86TI-kFJ0T4mu52NIKwfTz50Q&usqp=CAU', 
-                                follow: true, 
-                                statusUsers: 'Хватит ныть и занимайся',
-                                location: {
-                                        city: 'Moscau',
-                                        country: 'Russian'
-                                },
-                        },
-                        {
-                                id: 4, 
-                                fullName: 'Egor', 
-                                avatarUsers: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FEQjYeVYv86TI-kFJ0T4mu52NIKwfTz50Q&usqp=CAU', 
-                                follow: true, 
-                                statusUsers: 'Пойду пивка дам',
-                                location: {
-                                        city: 'Moscau',
-                                        country: 'Russian'
-                                },
-                        },
-                        {
-                                id: 5, 
-                                fullName: 'Konstantin', 
-                                avatarUsers: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2FEQjYeVYv86TI-kFJ0T4mu52NIKwfTz50Q&usqp=CAU', 
-                                follow: true, 
-                                statusUsers: 'Ремонт делать не лучше',
-                                location: {
-                                        city: 'Moscau',
-                                        country: 'Russian'
-                                },
-                        }, */

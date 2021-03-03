@@ -9,7 +9,7 @@ const ProfifeInfo = (props) => {
                 <Preloader/>:
                 <div className='profile'>
                         <div className='description'>
-                        <img src={props.profile == null? 'https://pbs.twimg.com/profile_images/612140046938959872/OaKOyzpC_400x400.jpg': props.profile.photos.large}
+                        <img src={props.profile.photos.large == null||undefined ? 'https://pbs.twimg.com/profile_images/612140046938959872/OaKOyzpC_400x400.jpg': props.profile.photos.large}
                                 className='ava'
                                 />
                                 <div className='profile-info'>
@@ -25,8 +25,3 @@ const ProfifeInfo = (props) => {
         );
 }
 export default ProfifeInfo;
-
-
-//props.profile.photos.large
-//'https://pbs.twimg.com/profile_images/612140046938959872/OaKOyzpC_400x400.jpg'
-// <img src={props.profile == null? 'https://pbs.twimg.com/profile_images/612140046938959872/OaKOyzpC_400x400.jpg': props.profile.photos.large}

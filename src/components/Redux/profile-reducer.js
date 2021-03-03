@@ -1,3 +1,5 @@
+import {componentAPI} from '../api/api';
+
 let ADD_POST = 'ADD-POST';
 let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let SET_PROFILE_PAGE = 'SET_PROFILE_PAGE';
@@ -35,22 +37,21 @@ const profileReducer = (state = initialState, action) => {
         }
 }
 
-export let addPostActionCreator = () => {
-        return {
-          type: ADD_POST, 
-        }
-}
-export let onPostChangeActionCreator = (text) => {  //нужно подправить нейминг
-        return {
-                type: UPDATE_NEW_POST_TEXT, 
-                newText: text,
-        }
-}
-export let setProfilePage = (profile) => {
-        return {
-                type: SET_PROFILE_PAGE, 
-                profile,
+
+//нужно подправить нейминг
+//!ActionCreators
+export let addPostActionCreator = () => { return {type: ADD_POST, } }
+export let onPostChangeActionCreator = (text) => { return {type: UPDATE_NEW_POST_TEXT, newText: text,}}
+export let setProfilePage = (profile) => {return {type: SET_PROFILE_PAGE, profile,}}
+
+//!ThunkCreator
+export const setProfilePageTC = (userId) => {
+        return (dispatch) => {       
+                componentAPI.getProfile(userId).then(data => {
+                        dispatch(setProfilePage(data));
+                }); 
         }
 }
 
-export default profileReducer;
+
+export default profileReducer; 

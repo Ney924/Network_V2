@@ -1,3 +1,5 @@
+import {componentAPI} from '../api/api';
+
 let SET_USER_DATA = 'SEND-MESSAGE';
 
 
@@ -22,12 +24,21 @@ const authReducer = (state = initialState, action) => {
         }
 }
 
-export let setAuthUserData = (userId, email, login,) => {
-        return {
-                type: SET_USER_DATA,
-                data: {userId,email,login,},    
+//!ActionCreators
+export let setAuthUserData = (userId, email, login,) => {return {type: SET_USER_DATA,data: {userId,email,login,}}}
+
+//!ThunkCreator
+export let setAuthUserDataTC = () => {
+        return (dispatch) => {       
+                componentAPI.getAuthMe().then(data => {
+                        if (data.resultCode === 0) {
+                                let {id, email, login} = data.data;
+                                dispatch(setAuthUserData(id, email, login));
+                        }
+                });
         }
 }
+
 
 export default authReducer;
 

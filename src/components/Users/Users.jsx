@@ -2,7 +2,6 @@ import React from 'react';
 import './Users.css';
 import noAvatar from '../image/no_avatar.png';
 import {NavLink} from 'react-router-dom'
-import { componentAPI } from '../api/api';
 
 let Users = (props) => {
         let pagesCount = Math.ceil(props.totalCount/props.pagesSize)
@@ -35,26 +34,10 @@ let Users = (props) => {
                                                 </NavLink>
                                                 <div className='users-follow-button'>
                                                         {u.follow 
-                                                                ? <button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ ()=> {                               
-                                                                props.toggleFollowingProgress(true, u.id)
-                                                                componentAPI.getUsersUnSubscribe(u.id)
-                                                                        .then(data => {
-                                                                        if (data.resultCode==0) {
-                                                                                props.unFollow(u.id)  
-                                                                        }
-                                                                        props.toggleFollowingProgress(false, u.id)
-                                                                });    
-                                                                }}>Отписаться</button>
-                                                                : <button disabled={props.followingInProgress.some(id=>id === u.id)} onClick={ ()=> {
-                                                                props.toggleFollowingProgress(true, u.id)
-                                                                componentAPI.getUsersSubscribe(u.id)
-                                                                .then(data => {
-                                                                        if (data.resultCode==0) {
-                                                                                props.follow(u.id)  
-                                                                        }
-                                                                        props.toggleFollowingProgress(false, u.id)
-                                                                        });
-                                                                }}>Подписаться</button>
+                                                                ? <button disabled={props.followingInProgress.some(id=>id === u.id)} 
+                                                                onClick={ ()=> {props.followTC(u.id)}}>Отписаться</button>
+                                                                : <button disabled={props.followingInProgress.some(id=>id === u.id)} 
+                                                                onClick={ ()=> {props.unFollowTC(u.id)}}>Подписаться</button>
                                                         }
                                                 </div>
                                         </div>
