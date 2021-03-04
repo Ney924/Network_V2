@@ -7,6 +7,7 @@ import Users from "./Users";
 import Preloader from '../common/preloader/Preloader';
 
 
+
 class UsersContainer extends React.Component {
 
         componentDidMount() {this.props.setUsersTC(this.props.currentPage, this.props.pagesSize)} 
@@ -38,6 +39,7 @@ let mapStateToProps = (state) => {
                 currentPage: state.usersPage.currentPage,
                 isFetching: state.usersPage.isFetching,
                 followingInProgress: state.usersPage.followingInProgress,
+                isAuth: state.auth.isAuth,
         }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import './Dialogs.css';
 import DialogsItem from './DialogsItem/DialogsItem'
 import MessageItem from './MessageItem/MessageItem'
@@ -13,14 +14,14 @@ const Dialogs = (props) => {
 
         let onAddMessage = () => {
                 props.addMessage()
-                //props.dispatch(addMessageAtionCreator());
         }
         
         let onMessageChange = () => {
                 let text = newMessageElement.current.value
                 props.updateNewMessageText(text)
-                //props.dispatch(onMessageChangeActionCreator(text));
         }
+
+        if (!props.isAuth) { return <Redirect to={'/login'}/> }
 
         return (
                 <div className='dialogs'>

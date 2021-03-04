@@ -2,7 +2,7 @@ import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
 import { setProfilePageTC } from '../Redux/profile-reducer';
-import { withRouter } from 'react-router-dom';
+import { withRouter,Redirect } from 'react-router-dom';
 
 
 class ProfileContainer extends React.Component {
@@ -12,11 +12,13 @@ class ProfileContainer extends React.Component {
                 if (userId == undefined) { userId = 15349; }          
                 this.props.setProfilePageTC(userId, this.props.profile)
         }
-            
             render () {
-                        return (
-                            <Profile {...this.props} profile={this.props.profile}/> 
-                        ) 
+
+                if (this.props.isAuth===false) { return <Redirect to={'/login'}/> }
+
+                return (
+                        <Profile {...this.props} profile={this.props.profile}/> 
+                ) 
             }
 }
 
