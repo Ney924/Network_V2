@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setUsers, setCurrentPage, 
-        setTotalCount, setIsFetching, setUsersTC,
-         onPageChangedTC, followTC, unFollowTC} from '../Redux/users-reducer';
+import { setUsers, setCurrentPage, setTotalCount, setIsFetching, setUsersTC,onPageChangedTC, followTC, unFollowTC} from '../Redux/users-reducer';
 import Users from "./Users";
 import Preloader from '../common/preloader/Preloader';
+import { withAuthRedirect } from '../hoc/AuthRedirect';
 
 
 
@@ -39,16 +38,17 @@ let mapStateToProps = (state) => {
                 currentPage: state.usersPage.currentPage,
                 isFetching: state.usersPage.isFetching,
                 followingInProgress: state.usersPage.followingInProgress,
-                isAuth: state.auth.isAuth,
         }
 }
+
+let isAuthRedirectComponent = withAuthRedirect(UsersContainer)
 
 export default connect (mapStateToProps, 
         {setUsers, 
                 setCurrentPage, setTotalCount, setIsFetching, 
                 setUsersTC, onPageChangedTC, followTC, unFollowTC
         }) 
-        (UsersContainer)
+        (isAuthRedirectComponent)
 
 
 

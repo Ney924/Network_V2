@@ -3,14 +3,15 @@ import './Users.css';
 import noAvatar from '../image/no_avatar.png';
 import {NavLink, Redirect} from 'react-router-dom'
 
+
 let Users = (props) => {
         let pagesCount = Math.ceil(props.totalCount/props.pagesSize)
         let pages = [];
         for (let i = 1; i <= pagesCount; i++ ) {
                 pages.push(i);
         }
-        
-        if (props.isAuth===false) { return <Redirect to={'/login'}/> }
+
+        //if (props.isAuth===false) { return <Redirect to={'/login'}/> }
 
         return (
                 <div className='users-page'> 
