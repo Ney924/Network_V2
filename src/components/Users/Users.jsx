@@ -11,8 +11,6 @@ let Users = (props) => {
                 pages.push(i);
         }
 
-        //if (props.isAuth===false) { return <Redirect to={'/login'}/> }
-
         return (
                 <div className='users-page'> 
                         <div className='button-page'>

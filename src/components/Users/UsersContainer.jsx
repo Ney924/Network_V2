@@ -4,6 +4,7 @@ import { setUsers, setCurrentPage, setTotalCount, setIsFetching, setUsersTC,onPa
 import Users from "./Users";
 import Preloader from '../common/preloader/Preloader';
 import { withAuthRedirect } from '../hoc/AuthRedirect';
+import { compose } from 'redux';
 
 
 
@@ -41,23 +42,34 @@ let mapStateToProps = (state) => {
         }
 }
 
-let isAuthRedirectComponent = withAuthRedirect(UsersContainer)
+
+export default compose (connect(
+        mapStateToProps, 
+        {setUsers,setCurrentPage, setTotalCount, setIsFetching, setUsersTC, onPageChangedTC, followTC, unFollowTC}),
+         withAuthRedirect)(UsersContainer)
+
+
+
+
+
+
+
+
+
+
+
+
+
+         /* let isAuthRedirectComponent = withAuthRedirect(UsersContainer)
 
 export default connect (mapStateToProps, 
         {setUsers, 
                 setCurrentPage, setTotalCount, setIsFetching, 
                 setUsersTC, onPageChangedTC, followTC, unFollowTC
         }) 
-        (isAuthRedirectComponent)
+        (isAuthRedirectComponent) */
 
-
-
-
-
-
-
-
-        
+    
 //! Диспатчи, записаные по старому (может пригодится)
 /*1 let mapDispatchToProps = (dispatch) => {
         return {
