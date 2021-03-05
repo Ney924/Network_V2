@@ -19,7 +19,7 @@ const ProfifeInfo = (props) => {
                                         <div className='profile-info-gender'>мужчина</div>
                                 </div>
                         </div>
-                        <ProfileStatus aboutMe={'Это мой статус'/* props.profile.aboutMe */}/>
+                        <ProfileStatus aboutMe={props.status} updateUserStatusTC={props.updateUserStatusTC}/>
                         {/* <div className='profile-status'>
                                 <p5>{props.profile.aboutMe}</p5>
                         </div>   */}

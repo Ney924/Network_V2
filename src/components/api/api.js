@@ -8,18 +8,10 @@ const instance = axios.create({
 })
 
 
-export const componentAPI = {
-        getAuthMe() {                                                             //Войти в соц сеть под своим именем
-                return instance.get(`auth/me`)
-                .then(response => {return response.data})  //!ПРОМИСЫ !
-        },
+export const usersAPI = {
         getUsersPage (currentPage, pagesSize) {                                   //Вывод юзеров, постранично                        
                 return instance.get(`users?page=${currentPage}&count=${pagesSize}`)
         .       then(response => {return response.data}) 
-        },
-        getProfile (userId) {                                                   //Показать профиль выбранного пользователя
-                return instance.get(`profile/` + userId)
-                .then(response => {return response.data})
         },
         getUsersUnSubscribe (id) {                                              //Отписаться от юзера
                 return instance.delete(`follow/${id}`)
@@ -29,5 +21,27 @@ export const componentAPI = {
                 return instance.post(`follow/${id}`)
                 .then(response => {return response.data})                                                          
         }
-
 }
+
+export const profileAPI = {
+        getProfile (userId) {                                                   //Показать профиль выбранного пользователя
+                return instance.get(`profile/` + userId)
+                .then(response => {return response.data})
+        },
+        getStatus (userId) {                                                   //Показать профиль выбранного пользователя
+                return instance.get(`profile/status/` + userId)
+                .then(response => {return response.data})
+        },
+        updateStatus (status) {                                                   //Показать профиль выбранного пользователя
+                return instance.put(`profile/status`, {status: status})
+                .then(response => {return response.data})
+        },
+}
+
+export const authAPI = {
+        getAuthMe() {                                                             //Войти в соц сеть под своим именем
+                return instance.get(`auth/me`)
+                .then(response => {return response.data})  //!ПРОМИС .then ПРОЧИТАТЬ КАК ЭТЬО РАБОТАЕТ
+},}
+
+export const dialogsAPI = {}

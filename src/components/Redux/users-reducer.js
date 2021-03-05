@@ -1,4 +1,4 @@
-import {componentAPI} from '../api/api';
+import {usersAPI} from '../api/api';
 
 let FOLLOW = 'FOLLOW';
 let UNFOLLOW = 'UNFOLLOW';
@@ -80,7 +80,7 @@ export const toggleFollowingProgress = (isFetching, userId) => { return { type: 
 export const setUsersTC = (currentPage, pagesSize) => {
         return (dispatch) => {
                 dispatch(setIsFetching(true)); 
-                componentAPI.getUsersPage(currentPage, pagesSize).then(data => {
+                usersAPI.getUsersPage(currentPage, pagesSize).then(data => {
                         dispatch(setIsFetching(false));
                         dispatch(setUsers(data.items));
                         dispatch(setTotalCount(data.totalCount));
@@ -91,7 +91,7 @@ export const onPageChangedTC = (pageNumber, pagesSize) => {
         return (dispatch) => {
                 dispatch(setCurrentPage(pageNumber));
                 dispatch(setIsFetching(true));                   
-                componentAPI.getUsersPage(pageNumber, pagesSize).then(data => {
+                usersAPI.getUsersPage(pageNumber, pagesSize).then(data => {
                         dispatch(setIsFetching(false));
                         dispatch(setUsers(data.items));   
                 });
@@ -100,7 +100,7 @@ export const onPageChangedTC = (pageNumber, pagesSize) => {
 export const followTC = (id) => {
         return (dispatch) => {
                 dispatch(toggleFollowingProgress(true, id))
-                componentAPI.getUsersUnSubscribe(id)
+                usersAPI.getUsersUnSubscribe(id)
                         .then(data => {
                         if (data.resultCode==0) {
                                 dispatch(unFollow(id))
@@ -112,7 +112,7 @@ export const followTC = (id) => {
 export const unFollowTC = (id) => {
         return (dispatch) => {
                 dispatch(toggleFollowingProgress(true, id))
-                componentAPI.getUsersUnSubscribe(id)
+                usersAPI.getUsersUnSubscribe(id)
                         .then(data => {
                         if (data.resultCode==0) {
                                 dispatch(follow(id))
@@ -121,7 +121,5 @@ export const unFollowTC = (id) => {
                 }); 
         }
 }
-
-
 
 export default usersReducer;

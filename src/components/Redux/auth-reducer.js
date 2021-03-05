@@ -1,4 +1,4 @@
-import {componentAPI} from '../api/api';
+import {authAPI} from '../api/api';
 
 let SET_USER_DATA = 'SEND-MESSAGE';
 
@@ -30,7 +30,7 @@ export let setAuthUserData = (userId, email, login,) => {return {type: SET_USER_
 //!ThunkCreator
 export let setAuthUserDataTC = () => {
         return (dispatch) => {       
-                componentAPI.getAuthMe().then(data => {
+                authAPI.getAuthMe().then(data => {
                         if (data.resultCode === 0) {
                                 let {id, email, login} = data.data;
                                 dispatch(setAuthUserData(id, email, login));
