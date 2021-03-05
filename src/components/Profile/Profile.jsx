@@ -5,11 +5,12 @@ import './Profile.css'
 
 
 const Profile = (props) => {
-  return (
-    <div className='content'>
-      <ProfifeInfo profile={props.profile}/>
-      <MyPostsContainer/>
-    </div>
+       debugger;
+        return (
+                <div className='content'>
+                        <ProfifeInfo profile={props.profile}/>
+                        <MyPostsContainer/>
+                </div>
   );
 }
 

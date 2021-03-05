@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setProfilePageTC } from '../Redux/profile-reducer';
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../hoc/AuthRedirect';
+import { compose } from 'redux';
 
 
 class ProfileContainer extends React.Component {
@@ -14,7 +15,7 @@ class ProfileContainer extends React.Component {
                 this.props.setProfilePageTC(userId, this.props.profile)
         }
             render () {
-
+                debugger;
                 return (
                         <Profile {...this.props} profile={this.props.profile}/> 
                 ) 
@@ -28,13 +29,29 @@ let mapStateToProps = (state) => {
             
 }
 
-let isAuthRedirectComponent = withAuthRedirect(ProfileContainer)
+export default compose(connect(mapStateToProps,
+        {setProfilePageTC} ),
+withRouter,
+withAuthRedirect)
+(ProfileContainer)
+
+
+
+
+
+
+
+
+
+
+
+/* let isAuthRedirectComponent = withAuthRedirect(ProfileContainer)
 
 let WithUrlDateProfileContainer= withRouter(isAuthRedirectComponent);
 
 export default connect(mapStateToProps, 
             {setProfilePageTC} ) 
             (WithUrlDateProfileContainer);
-
+ */
 
 /* axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId) */
