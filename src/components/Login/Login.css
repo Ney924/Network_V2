@@ -1,0 +1,14 @@
+.login-user {
+        margin: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+}
+
+.login-user-item {
+        padding: 10px;
+       
+}
+
+.login-user-item button {
+        width: 150px;
+}
