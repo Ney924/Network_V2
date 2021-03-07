@@ -1,9 +1,9 @@
 import React from 'react';
 import Dialogs from './Dialogs';
-import {addMessageAtionCreator, onMessageChangeActionCreator} from "../Redux/dialogs-reducer";
+import {addMessageAC, } from "../Redux/dialogs-reducer";
 import { connect } from 'react-redux';
 import { withAuthRedirect } from '../hoc/AuthRedirect';
-import { compose } from 'redux';
+//import { compose } from 'redux';
 
 let mapStateToProps = (state) => {
         return {
@@ -14,12 +14,7 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
         return {
-                        addMessage: () => {
-                        dispatch(addMessageAtionCreator())
-                },
-                updateNewMessageText: (text) => {
-                        dispatch(onMessageChangeActionCreator(text))
-                }
+                addMessage: (newMessageBody) => {dispatch(addMessageAC(newMessageBody))},
         }
 }
 
@@ -36,7 +31,7 @@ export default DialogsContainer;
 
 
 
-
+//!Всякое стаарое
 /* const DialogsContainer = (props) => {
         let state = props.store.getState().dialogsPage;
         
@@ -56,3 +51,4 @@ export default DialogsContainer;
                 dialogsData={state.dialogsData}
         />
 } */
+ /* updateNewMessageText: (text) => {dispatch(onMessageChangeActionCreator(text))} */
