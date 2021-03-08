@@ -1,0 +1,11 @@
+.input-form {
+        display: flex;
+}
+
+.error {
+        background-color: rgb(240, 241, 241);
+        border-radius: 3px;
+        padding: 4px;
+        border: rgb(116, 116, 116) solid 1px;
+        margin-left: 10px;
+}

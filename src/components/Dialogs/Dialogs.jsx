@@ -1,9 +1,13 @@
 import React from 'react';
 import './Dialogs.css';
-import DialogsItem from './DialogsItem/DialogsItem'
-import MessageItem from './MessageItem/MessageItem'
-import { Field, reduxForm } from 'redux-form'
+import DialogsItem from './DialogsItem/DialogsItem';
+import MessageItem from './MessageItem/MessageItem';
+import { Field, reduxForm } from 'redux-form';
+import { required, maxLenghtCreator } from "./../../utils/validators/validator";
+import { Input } from '../common/formsControls/formsControls';
 
+
+const maxLenght150 = maxLenghtCreator(150)
 
 const Dialogs = (props) => {
         let dialogsElemets = props.dialogsPage.dialogsData.map((d)=> <DialogsItem name={d.name} id={d.id}/>)
@@ -35,8 +39,9 @@ const MessageForm = (props) => {
                 <form className='add-message' onSubmit={props.handleSubmit}>
                         <Field 
                                 placeholder='Введите сообщение' 
-                                component={'input'} 
+                                component={Input} 
                                 name={'newMessageBody'}
+                                validate={[required, maxLenght150]}
                         />
                         <button>Отправить</button>
                 </form>
