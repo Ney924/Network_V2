@@ -1,13 +1,14 @@
-import {authAPI} from '../api/api';
+import { authAPI } from '../api/api';
+import { stopSubmit } from 'redux-form'
 
 let SET_USER_DATA = 'SEND-MESSAGE';
 
 
 let initialState = {
-                userId: null,
-                email: null,
-                login: null,
-                isAuth: false,
+        userId: null,
+        email: null,
+        login: null,
+        isAuth: false,
 };
 
 
@@ -17,40 +18,45 @@ const authReducer = (state = initialState, action) => {
                         return {
                                 ...state,
                                 ...action.payload,
-                        }  
+                        }
                 default:
                         return state;
         }
 }
 
 //!ActionCreators
-export let setAuthUserData = (userId, email, login, isAuth) => {return {type: SET_USER_DATA,payload: {userId, email, login, isAuth}}}
+export let setAuthUserData = (userId, email, login, isAuth) => { return { type: SET_USER_DATA, payload: { userId, email, login, isAuth } } }
 
 //!ThunkCreator
 export let setAuthUserDataTC = () => {
-        return (dispatch) => {       
+        return (dispatch) => {
                 authAPI.getAuthMe().then(data => {
                         if (data.resultCode === 0) {
-                                let {id, email, login} = data.data;
+                                let { id, email, login } = data.data;
                                 dispatch(setAuthUserData(id, email, login, true));
                         }
                 });
         }
 }
 export let loginTC = (email, password, rememberMe) => {
-        return (dispatch) => {       
+        return (dispatch) => {
                 authAPI.login(email, password, rememberMe).then(data => {
                         if (data.resultCode === 0) {
                                 dispatch(setAuthUserDataTC())
+                        }
+                        else {
+                                let messageError = data.messages.length > 0 ? data.messages[0]: 'Ошибка'
+                                let action = stopSubmit('login', { _error: messageError });
+                                dispatch(action)
                         }
                 });
         }
 }
 export let logoutTC = () => {
-        return (dispatch) => {       
+        return (dispatch) => {
                 authAPI.logout().then(data => {
                         if (data.resultCode === 0) {
-                                dispatch(setAuthUserDataTC(null, null, null, false))
+                                dispatch(setAuthUserData(null, null, null, false))
                         }
                 });
         }
