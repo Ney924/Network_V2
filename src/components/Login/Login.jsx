@@ -1,44 +1,35 @@
 import React from 'react';
 import './Login.css';
-import { Field, reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form'
+import { LoginForm } from "./LoginForm";
+import { connect } from 'react-redux';
+import { loginTC } from '../Redux/auth-reducer';
+import { Redirect } from 'react-router';
 
-const LoginForm = (props) => {
-        return (
-                <form onSubmit={props.handleSubmit}>
-                        <div>
-                                <div className='login-user-item'>
-                                        <Field placeholder='Login' component={'input'} name={'login'}/>
-                                </div>
-                                <div className='login-user-item'>
-                                        <Field placeholder='Password' component={'input'} name={'password'} />
-                                </div>
-                                <div className='login-user-item'>
-                                        <Field type="checkbox" component={'input'} name={'remember me'}/> remember me
-                                </div>
-                                <div className='login-user-item'>
-                                        <button>Login</button>
-                                </div>
-                        </div>
-                </form> 
-        )
+let mapStateToProps = (state) => {
+        return {
+                isAuth: state.auth.isAuth,
+        }
 }
-
-const LoginReduxForm =  reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
 
-        const onSubmit = (formData) => {
-                console.log(formData);
+        const LoginMe = (formData) => {
+                props.loginTC(formData.email, formData.password, formData.rememberMe);
+                // тут loginTC это callback, который внутри себя диспатчит thunkCreator с таким же названием loginTC
         }
-        
+
+        if (props.isAuth) { return <Redirect to={'/profile'} /> }
+
         return (
-                <div className='login-user'>
-                      <h1>Login user</h1>
-                        <LoginReduxForm onSubmit={onSubmit}/>  
+                <div className='login-user-window'>
+                        <h1>Login user</h1>
+                        <LoginReduxForm onSubmit={LoginMe} />
                 </div>
-                
+
         )
 }
 
+const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
-export default Login;
+export default connect(mapStateToProps, { loginTC })(Login);

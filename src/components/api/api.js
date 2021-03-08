@@ -42,6 +42,15 @@ export const authAPI = {
         getAuthMe() {                                                             //Войти в соц сеть под своим именем
                 return instance.get(`auth/me`)
                 .then(response => {return response.data})  //!ПРОМИС .then ПРОЧИТАТЬ КАК ЭТЬО РАБОТАЕТ
-},}
+        },
+        login(email, password, rememberMe = false) {                               //логинимся в свой профиль                         
+                return instance.post(`auth/login`, {email, password, rememberMe})
+                .then(response => {return response.data}) 
+        },
+        logout() {                                                             //Выходим из профиля
+                return instance.delete(`auth/login`)
+                .then(response => {return response.data}) 
+        },
+}
 
 export const dialogsAPI = {}
