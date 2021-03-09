@@ -1,30 +1,35 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { setProfilePageTC, getUserStatusTC, updateUserStatusTC} from '../Redux/profile-reducer';
+import { setProfilePageTC, getUserStatusTC, updateUserStatusTC } from '../Redux/profile-reducer';
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../hoc/AuthRedirect';
 import { compose } from 'redux';
 
 
 class ProfileContainer extends React.Component {
-            
-        componentDidMount () {
-        let userId = this.props.match.params.userId;
-                if (userId == undefined) { userId = this.props.authorizedMyId; }          
+
+        componentDidMount() {
+                let userId = this.props.match.params.userId;
+                if (userId == undefined) {
+                        userId = this.props.authorizedMyId;
+                        if (!userId) {
+                                this.props.histoty.push('/login');  //заглушка с редиректом через метод history.push
+                        }
+                }
                 this.props.setProfilePageTC(userId, this.props.profile);
                 this.props.getUserStatusTC(userId);
-                
+
         }
-            render () {
+        render() {
                 return (
-                        <Profile {...this.props} 
-                                profile={this.props.profile} 
+                        <Profile {...this.props}
+                                profile={this.props.profile}
                                 status={this.props.status}
                                 updateUserStatusTC={this.props.updateUserStatusTC}
-                                /> 
-                ) 
-            }
+                        />
+                )
+        }
 }
 
 let mapStateToProps = (state) => {
@@ -34,14 +39,14 @@ let mapStateToProps = (state) => {
                 authorizedMyId: state.auth.userId,
                 isAuth: state.auth.isAuth,
         }
-            
+
 }
 
 export default compose(connect(mapStateToProps,
-        {setProfilePageTC, getUserStatusTC, updateUserStatusTC} ),
-withRouter,
-withAuthRedirect)
-(ProfileContainer)
+        { setProfilePageTC, getUserStatusTC, updateUserStatusTC }),
+        withRouter,
+        withAuthRedirect)
+        (ProfileContainer)
 
 
 
@@ -57,8 +62,8 @@ withAuthRedirect)
 
 let WithUrlDateProfileContainer= withRouter(isAuthRedirectComponent);
 
-export default connect(mapStateToProps, 
-            {setProfilePageTC} ) 
+export default connect(mapStateToProps,
+            {setProfilePageTC} )
             (WithUrlDateProfileContainer);
  */
 

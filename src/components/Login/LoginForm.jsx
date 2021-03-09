@@ -17,7 +17,7 @@ export const LoginForm = (props) => {
                                         {props.error}
                                 </div>}
                                 <div className='login-user-item'>
-                                        <Field type="checkbox" component={'input'} name={'rememberMe'}/> remember me
+                                        <Field type="checkbox" component={'input'} name={'rememberMe'}/> Запомнить меня
                                 </div>
                                 <div className='login-user-item'>
                                         <button>Login</button>

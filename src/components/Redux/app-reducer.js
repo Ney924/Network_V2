@@ -1,23 +1,18 @@
 import { authAPI } from '../api/api';
-import { stopSubmit } from 'redux-form'
+import { setAuthUserDataTC } from './auth-reducer'
 
-let SET_USER_DATA = 'SEND-MESSAGE';
-
+let SET_INITIALAZE = 'SET_INITIALAZE';
 
 let initialState = {
-        userId: null,
-        email: null,
-        login: null,
-        isAuth: false,
+        initialazed: false,
 };
 
-
-const authReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action) => {
         switch (action.type) {
-                case SET_USER_DATA:
+                case SET_INITIALAZE:
                         return {
                                 ...state,
-                                ...action.payload,
+                                initialazed: true,
                         }
                 default:
                         return state;
@@ -25,20 +20,22 @@ const authReducer = (state = initialState, action) => {
 }
 
 //!ActionCreators
-export let setAuthUserData = (userId, email, login, isAuth) => { return { type: SET_USER_DATA, payload: { userId, email, login, isAuth } } }
+export let setInizialaze = () => { return { type: SET_INITIALAZE } }
 
 //!ThunkCreator
-export let setAuthUserDataTC = () => {
-        return (dispatch) => {
-                return authAPI.getAuthMe().then(data => {
-                        if (data.resultCode === 0) {
-                                let { id, email, login } = data.data;
-                                dispatch(setAuthUserData(id, email, login, true));
-                        }
-                });
-        }
+export let initialazeAppTC = () => (dispatch) => {
+        let promise = dispatch(setAuthUserDataTC())
+        Promise.all([promise])
+                .then(() => {
+                        dispatch(setInizialaze())
+                })
 }
-export let loginTC = (email, password, rememberMe) => {
+
+export default appReducer;
+
+
+
+/* export let loginTC = (email, password, rememberMe) => {
         return (dispatch) => {
                 authAPI.login(email, password, rememberMe).then(data => {
                         if (data.resultCode === 0) {
@@ -60,8 +57,4 @@ export let logoutTC = () => {
                         }
                 });
         }
-}
-
-
-export default authReducer;
-
+} */
