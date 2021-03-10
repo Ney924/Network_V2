@@ -1,7 +1,8 @@
 import React from 'react';
 import Preloader from '../../common/preloader/Preloader';
 import './ProfifeInfo.css';
-import ProfileStatus from './ProfileStatus';
+//import ProfileStatus from './ProfileStatus';
+import ProfileStatusHook from './ProfileStatusHook';
 
 
 const ProfifeInfo = (props) => {
@@ -19,10 +20,7 @@ const ProfifeInfo = (props) => {
                                         <div className='profile-info-gender'>мужчина</div>
                                 </div>
                         </div>
-                        <ProfileStatus aboutMe={props.status} updateUserStatusTC={props.updateUserStatusTC}/>
-                        {/* <div className='profile-status'>
-                                <p5>{props.profile.aboutMe}</p5>
-                        </div>   */}
+                        <ProfileStatusHook status={props.status} updateUserStatusTC={props.updateUserStatusTC}/>
                 </div>
         );
 }
