@@ -8,7 +8,7 @@ import { Input } from "./../../common/formsControls/formsControls";
 
 const maxLenght100 = maxLenghtCreator(100)
 
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
 
         let postsElemetnts = props.profilePage.postData.map((post) => <Post message={post.post} like={post.like} />)
 
@@ -25,7 +25,7 @@ const MyPosts = (props) => {
                         {postsElemetnts}
                 </div>
         );
-}
+})
 
 export default MyPosts;
 

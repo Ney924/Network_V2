@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Music = () => {
+        const [count, setCount] = useState(0);
+      
+        // По принципу componentDidMount и componentDidUpdate:
+        useEffect(() => {
+          // Обновляем заголовок документа, используя API браузера
+          document.title = `Вы нажали ${count} раз`;
+        });
+      
         return (
-                <div>
-                     Music 
-                </div>
+          <div>
+            <p>Вы нажали {count} раз</p>
+            <button onClick={() => setCount(count + 1)}>
+              Нажми на меня
+            </button>
+          </div>
         );
-}
+      }
 
 export default Music;

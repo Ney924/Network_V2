@@ -4,6 +4,8 @@ function News() {
   // Объявление переменной состояния, которую мы назовём "count"
   const [count, setCount] = useState(0);
 
+
+  
   return (
     <div>
       <p>Вы кликнули {count} раз</p>
