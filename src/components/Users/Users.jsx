@@ -1,28 +1,40 @@
 import React from 'react';
 import './Users.css';
-import noAvatar from '../image/no_avatar.png';
-import { NavLink } from 'react-router-dom'
-
+import UsersPageButton from './UsersPageButton';
+import User from './User';
 
 let Users = (props) => {
-        let pagesCount = Math.ceil(props.totalCount / props.pagesSize)
-        let pages = [];
-        for (let i = 1; i <= pagesCount; i++) {
-                pages.push(i);
-        }
-
         return (
                 <div className='users-page'>
-                        <div className='button-page'>
-                                {pages.map(c => {
-                                        return (
-                                                <button
-                                                        className='one-button-page'
-                                                        onClick={() => props.onPageChanged(c)}>
-                                                        {c}
-                                                </button>)
-                                })}
-                        </div>
+                        <UsersPageButton
+                                totalCount={props.totalCount}
+                                pagesSize={props.pagesSize}
+                                onPageChanged={props.onPageChanged}
+                        />
+                       {props.usersData.map(u => <User
+                                key={u.id}
+                                followingInProgress={props.followingInProgress}
+                                unFollowTC={props.unFollowTC}
+                                followTC={props.followTC}
+                                usersData={u}
+                        />)}
+                </div>
+        )
+}
+
+export default Users
+
+
+
+/* let Users = (props) => {
+debugger
+        return (
+                <div className='users-page'>
+                        <UsersPageButton
+                                totalCount={props.totalCount}
+                                pagesSize={props.pagesSize}
+                                onPageChanged={props.onPageChanged}
+                        />
                         {props.usersData.map(u =>
                                 <div className='users' key={u.id}>
                                         <div className='users-avatar'>
@@ -57,16 +69,5 @@ let Users = (props) => {
         )
 }
 
-export default Users
+export default Users  */
 
-
-
-
-//axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
-//{withCredentials: true, 
-//headers: {"API-KEY": "785eab70-df14-4fb5-9f9e-100f69f4a368"}})
-
-
-//axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, 
-//{}, 
-//{withCredentials: true, headers: {'API-KEY': '785eab70-df14-4fb5-9f9e-100f69f4a368'}})

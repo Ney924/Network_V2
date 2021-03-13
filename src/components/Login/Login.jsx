@@ -15,8 +15,7 @@ let mapStateToProps = (state) => {
 const Login = (props) => {
 
         const LoginMe = (formData) => {
-                props.loginTC(formData.email, formData.password, formData.rememberMe);
-                // тут loginTC это callback, который внутри себя диспатчит thunkCreator с таким же названием loginTC
+                props.loginTC(formData.email, formData.password, formData.rememberMe); // тут loginTC это callback, который внутри себя диспатчит thunkCreator с таким же названием loginTC   
         }
 
         if (props.isAuth) { return <Redirect to={'/profile'} /> }

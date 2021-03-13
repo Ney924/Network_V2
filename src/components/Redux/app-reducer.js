@@ -1,7 +1,7 @@
 import { authAPI } from '../api/api';
 import { setAuthUserDataTC } from './auth-reducer'
 
-let SET_INITIALAZE = 'SET_INITIALAZE';
+let SET_INITIALAZE = 'app/SET_INITIALAZE';
 
 let initialState = {
         initialazed: false,

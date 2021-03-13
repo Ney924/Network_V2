@@ -1,29 +1,30 @@
 import React from 'react';
-import { Field } from 'redux-form'
+import { createFielfInput } from '../common/formsControls/formsControls';
 import './Login.css';
 
 export const LoginForm = (props) => {
-        debugger
+
         return (
                 <form onSubmit={props.handleSubmit}>
                         <div className='login-user'>
                                 <div className='login-user-item'>
-                                        <Field placeholder='Login' component={'input'} name={'email'} className='login-user-input'/>
+                                        {createFielfInput('Login', 'input', 'email', 'login-user-input', null)}
                                 </div>
                                 <div className='login-user-item'>
-                                        <Field placeholder='Password' component={'input'} name={'password'} type={'password'} className='login-user-input'/>
+                                        {createFielfInput('Password', 'input', 'password', 'login-user-input', 'password')}
                                 </div>
                                 {props.error && <div className='login-error'>
                                         {props.error}
                                 </div>}
                                 <div className='login-user-item'>
-                                        <Field type="checkbox" component={'input'} name={'rememberMe'}/> Запомнить меня
+                                        {createFielfInput(null, 'input', 'rememberMe', null, 'checkbox')}
+                                        Запомнить меня
                                 </div>
                                 <div className='login-user-item'>
                                         <button>Login</button>
                                 </div>
                         </div>
-                </form> 
+                </form>
         )
 }
 
