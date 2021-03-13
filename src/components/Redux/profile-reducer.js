@@ -4,6 +4,7 @@ let ADD_POST = 'ADD-POST';
 let SET_PROFILE_PAGE = 'SET_PROFILE_PAGE';
 let SET_STATUS = 'SET_STATUS';
 let UPDATE_STATUS = 'UPDATE_STATUS';
+let DELETE_POST = 'DELETE_POST';
 
 let initialState = {
                 postData: [
@@ -21,6 +22,11 @@ const profileReducer = (state = initialState, action) => {
                         return {
                                 ...state,
                                 postData: [ ...state.postData, {id: 5, post: action.newPostText, like: 25,}],
+                        }
+                case DELETE_POST: //!ДОБАВИТЬ КНОПКУ
+                        return {
+                                ...state,
+                                postData: [ ...state.postData.filter(p => !p.action.id)]
                         }
                 case SET_PROFILE_PAGE:
                         return {
@@ -46,6 +52,7 @@ const profileReducer = (state = initialState, action) => {
 //нужно подправить нейминг
 //!ActionCreators
 export let addPostAC = (newPostText) => { return {type: ADD_POST, newPostText} }
+export let deletePostAC = (id) => { return {type: DELETE_POST, id} }
 export let setProfilePage = (profile) => {return {type: SET_PROFILE_PAGE, profile,}}
 export let setUserStatus = (status) => {return {type: SET_STATUS, status,}}
 
