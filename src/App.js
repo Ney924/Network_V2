@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { initialazeAppTC } from './components/Redux/app-reducer';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import NavBar from './components/NavBar/NavBar';
@@ -10,9 +13,6 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import Login from './components/Login/Login';
-import { initialazeAppTC } from './components/Redux/app-reducer';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 import Preloader from './components/common/preloader/Preloader';
 
 

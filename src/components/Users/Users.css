@@ -33,22 +33,6 @@
         font-size: 20px;
 }
 
-.button-page {
-        height: 30px;
-        margin: 15px 0 30px 20px;
-        display: flex;
-}
-
-.one-button-page {
-        height: 25px;
-        width: 35px;
-        margin-left: 5px;
-        border: none;
-        background-color: rgb(185, 185, 185);
-        color: honeydew;
-        border-radius: 5px;
-}
-
 .users-follow-button {
         margin-left: 20px;
         margin-top: 10px;

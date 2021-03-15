@@ -16,14 +16,6 @@ export const getIsFetching = (state) => {
 export const getFollowingInProgress = (state) => {
         return state.usersPage.followingInProgress;
 }
-
-/* let mapStateToProps = (state) => {
-        return {
-                usersData: state.usersPage.usersData,
-                pagesSize: state.usersPage.pagesSize,
-                totalCount: state.usersPage.totalCount,
-                currentPage: state.usersPage.currentPage,
-                isFetching: state.usersPage.isFetching,
-                followingInProgress: state.usersPage.followingInProgress,
-        }
-} */
+export const getPortionSize = (state) => {
+        return state.usersPage.portionSize;
+}

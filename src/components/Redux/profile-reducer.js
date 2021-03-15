@@ -10,7 +10,7 @@ let initialState = {
         postData: [
                 { id: 1, post: 'Это мой первый пост', like: 5 },
                 { id: 2, post: 'Привет, как дела?', like: 2 },
-                { id: 3, post: 'Хуёво, денег нет', like: 10 },
+                { id: 3, post: 'Плохо, денег нет', like: 10 },
         ],
         profile: null,
         status: '',

@@ -1,0 +1,29 @@
+.button-page {
+        height: 30px;
+        margin: 15px 0 30px 20px;
+        display: flex;
+}
+
+.one-button-page {
+        height: 25px;
+        width: 35px;
+        margin-left: 5px;
+        border: none;
+        background-color: rgb(185, 185, 185);
+        color: honeydew;
+        border-radius: 5px;
+}
+
+.next-button {
+        width: 100px;
+        background-color: rgb(133, 133, 133);
+}
+
+.portion-button{
+        width:402px
+}
+
+.next-portion {
+        width: 85px;
+        background-color: rgb(126, 126, 126);
+}
