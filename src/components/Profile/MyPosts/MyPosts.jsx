@@ -19,7 +19,7 @@ const MyPosts = React.memo((props) => {
         return (
                 <div className='posts'>
                         <div>
-                                <h3>Posts users</h3>
+                                <h3>Мои посты</h3>
                         </div>
                         <MyPostsReduxForm onSubmit={onAddPost} />
                         {postsElemetnts}
@@ -32,14 +32,14 @@ export default MyPosts;
 
 const MyPostsForm = (props) => {
         return (
-                <form onSubmit={props.handleSubmit}>
+                <form onSubmit={props.handleSubmit} className='input-post'>
                         <Field
-                                placeholder='Добавить пост'
+                                placeholder='Написать...'
                                 component={Input}
                                 name='newPostText'
                                 validate={[required, maxLenght100]}
                         />
-                        <button>Add post</button>
+                        <button>Добавить</button>
                 </form>
         )
 }

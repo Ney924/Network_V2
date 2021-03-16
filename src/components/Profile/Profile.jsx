@@ -2,6 +2,7 @@ import React from 'react';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfifeInfo from './ProfifeInfo/ProfifeInfo';
 import './Profile.css'
+import ProfilePanel from './ProfilePanel/ProfilePanel';
 
 
 const Profile = (props) => {
@@ -12,6 +13,7 @@ const Profile = (props) => {
                                 status={props.status}
                                 updateUserStatusTC={props.updateUserStatusTC}
                         />
+                        <ProfilePanel/>
                         <MyPostsContainer/>
                 </div>
   );

@@ -20,6 +20,7 @@ const ProfifeInfo = (props) => {
                                         <div className='profile-info-gender'>мужчина</div>
                                 </div>
                         </div>
+                        <hr className='line'/>
                         <ProfileStatusHook status={props.status} updateUserStatusTC={props.updateUserStatusTC}/>
                 </div>
         );

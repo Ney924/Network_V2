@@ -1,6 +1,13 @@
 .dialogs {
         display: grid;
-        grid-template-columns: 200px 10fr;
+        grid-template-columns: 10fr 200px;
+}
+
+.dialogs-container {
+        border:rgb(217, 217, 218) solid 1px;
+        margin: 3px 3px 0 3px;
+        border-radius: 3px;
+        background-color: rgb(255, 255, 255);
 }
 
 .dialog-items {
@@ -18,10 +25,27 @@
 }
 
 .message-block {
-        background-color: rgb(225, 245, 255);
-        height: 100vh
+        background-color: rgb(238, 249, 255);
+        height: 100vh;
+        border:rgb(217, 217, 218) solid 1px;
+        border-radius: 3px;
+        margin: 15px 0 15px 15px;
 }
 
 .add-message {
         padding: 20px 0 20px 20px ;
+        display: grid;
+        grid-template-columns: 26rem 3rem;
+}
+
+.line {
+        margin: 0 15px 0 30px;
+}
+.line-mini {
+        margin: 20px 15px 0 0;
+}
+
+.add-message-input {
+        width: 26rem;
+        border :rgb(217, 217, 218) solid 1px;
 }

@@ -9,8 +9,8 @@ let DELETE_POST = 'profile/DELETE_POST';
 let initialState = {
         postData: [
                 { id: 1, post: 'Это мой первый пост', like: 5 },
-                { id: 2, post: 'Привет, как дела?', like: 2 },
-                { id: 3, post: 'Плохо, денег нет', like: 10 },
+                { id: 2, post: 'Привет, как у вас дела?', like: 2 },
+                { id: 3, post: 'Это мой первый проект на React', like: 10 },
         ],
         profile: null,
         status: '',

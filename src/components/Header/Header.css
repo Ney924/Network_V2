@@ -3,7 +3,7 @@
         background-color: rgb(193, 209, 224);
         display: flex;
         margin: 2px;
-        border:rgb(141, 141, 141) solid 1px;
+        border:rgb(217, 217, 218) solid 1px;
         border-radius: 3px;
         font-family: Arial, Helvetica, sans-serif;
       }
@@ -26,11 +26,12 @@
         padding: 0 10px 0 10px;
         font-size: 16px;
         font-weight: 600;
-        color: rgb(85, 85, 85);
+        color: rgb(59, 59, 59);
         border-radius: 5px;
-        background-color: rgb(133, 163, 196);
+        background-color: rgb(127, 185, 247);
         display: flex;
         align-items: center;
+        border: rgb(217, 217, 218) solid 1px;
 
 }
 
@@ -43,7 +44,8 @@
         height: 25px;
         width: 60px;
         border: none;
-        background-color: rgb(126, 126, 126);
-        color: honeydew;
+        background-color: rgb(242, 242, 243);
+        color: rgb(58, 58, 58);
         border-radius: 5px;
+        border: rgb(217, 217, 218) solid 1px;
 }
