@@ -24,10 +24,10 @@ class App extends React.Component {
                         return <Preloader/>
                 }
                 return (
-                        <div className="app-wrapper">
+                        <div className="app-wrapper content">
                                 <HeaderContainer />
                                 <NavBar />
-                                <div className='content'>
+                                <div className='content-board'>
                                         <Route
                                                 path='/profile/:userId?'
                                                 render={() => <Suspense fallback={<Preloader/>}> <ProfileContainer /> </Suspense>} 

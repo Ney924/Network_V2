@@ -5,11 +5,18 @@
   grid-template-areas: 
   'a a'
   'b c';
+  margin: 0px;
+  padding: 0px;
 }
 
-/* .content {
+/* .content-board{
+        grid-area: a;
+} */
+
+.content {
   padding: 0 calc(50% - 31.25rem) 0 calc(50% - 31.25rem);
   box-sizing: border-box;
-} */
+  margin: 2px;
+}
 
 

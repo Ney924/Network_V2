@@ -3,6 +3,9 @@
         background-color: rgb(229, 237, 245);
         padding-top: 20px;
         height: 100vh; 
+        margin: 2px;
+        border:rgb(141, 141, 141) solid 1px;
+        border-radius: 3px;
       }
 
 .item {

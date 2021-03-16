@@ -2,11 +2,7 @@ import React from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import './Header.css'
 
-const Header = (props) => {
-        /* let redirectLogin = () => {
-                <Redirect to={'/login'}/>
-        } */
-        
+const Header = (props) => {        
         return (
                 <div className='header'>
                         <img src='https://cdn.logo.com/hotlink-ok/logo-social-sq.png' />
@@ -16,7 +12,7 @@ const Header = (props) => {
                                         props.isAuth
                                                 ? <div className='login-blok-button'> 
                                                         <span>{props.login} </span>
-                                                        <button onClick={props.logoutTC}> Выйти </button>
+                                                        <button onClick={props.logoutTC} className='login-button'> Выйти </button>
                                                 </div>
                                                 : <NavLink to={'/login'}> <button className='login-blok-button'> Login </button> </NavLink>
                                 }
