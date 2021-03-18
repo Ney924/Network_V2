@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { setProfilePageTC, getUserStatusTC, updateUserStatusTC } from '../Redux/profile-reducer';
+import { setProfilePageTC, getUserStatusTC, updateUserStatusTC, saveFotoTC} from '../Redux/profile-reducer';
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../hoc/AuthRedirect';
 import { compose } from 'redux';
@@ -9,7 +9,7 @@ import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
 
-        componentDidMount() {
+        updateProfile() {
                 let userId = this.props.match.params.userId;
                 if (userId == undefined) {
                         userId = this.props.authorizedMyId;
@@ -21,11 +21,25 @@ class ProfileContainer extends React.Component {
                 this.props.getUserStatusTC(userId);
 
         }
+
+        componentDidMount() {
+               this.updateProfile();
+        }
+
+        componentDidUpdate(prevProps, prevState) {
+                if (this.props.match.params.userId!=prevProps.match.params.userId) {
+                        this.updateProfile();
+                }
+              
+        }
+
         render() {
                 return (
                         <Profile {...this.props}
                                 profile={this.props.profile}
                                 status={this.props.status}
+                                isOwner={!this.props.match.params.userId}
+                                saveFotoTC={this.props.saveFotoTC}
                         />
                 )
         }
@@ -42,7 +56,7 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(connect(mapStateToProps,
-        { setProfilePageTC, getUserStatusTC, updateUserStatusTC }),
+        { setProfilePageTC, getUserStatusTC, updateUserStatusTC, saveFotoTC}),
         withRouter,
         withAuthRedirect)
         (ProfileContainer)
