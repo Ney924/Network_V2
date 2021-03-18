@@ -22,7 +22,7 @@ const Login = (props) => {
 
         return (
                 <div className='login-user-window'>
-                        <h1>Login user</h1>
+                        <h1>Введите свои данные</h1>
                         <LoginReduxForm onSubmit={LoginMe} />
                 </div>
 

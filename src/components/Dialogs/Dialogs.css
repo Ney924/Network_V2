@@ -8,6 +8,9 @@
         margin: 3px 3px 0 3px;
         border-radius: 3px;
         background-color: rgb(255, 255, 255);
+        display: grid;
+        overflow: auto;
+        height: 95vh; 
 }
 
 .dialog-items {
@@ -26,7 +29,7 @@
 
 .message-block {
         background-color: rgb(238, 249, 255);
-        height: 100vh;
+        height: 88vh;
         border:rgb(217, 217, 218) solid 1px;
         border-radius: 3px;
         margin: 15px 0 15px 15px;

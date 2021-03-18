@@ -1,4 +1,5 @@
 import React from 'react';
+import './Users.css';
 import { connect } from 'react-redux';
 import { setUsers, setCurrentPage, setTotalCount, setIsFetching, setUsersTC,onPageChangedTC, followTC, unFollowTC} from '../Redux/users-reducer';
 import Users from "./Users";
@@ -17,7 +18,7 @@ class UsersContainer extends React.Component {
         
         render () {     
                 return (
-                        <>
+                        <div className='users-comtainer'>
                                 {this.props.isFetching ? <Preloader/> : null}
                                 <Users
                                         totalCount={this.props.totalCount}
@@ -29,7 +30,7 @@ class UsersContainer extends React.Component {
                                         unFollowTC={this.props.unFollowTC}
                                         portionSize={this.props.portionSize}
                                 />
-                        </>
+                        </div>
                 )}
 }
 
