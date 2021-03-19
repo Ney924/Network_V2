@@ -11,30 +11,26 @@ import DialogueWithTheUser from './DialogueWithTheUser/DialogueWithTheUser';
 const maxLenght150 = maxLenghtCreator(150)
 
 const Dialogs = (props) => {
-        let dialogsElemets = props.dialogsPage.dialogsData.map((d) => <DialogsItem name={d.name} id={d.id} activDialogAC={props.activDialogAC}/>)
+        let dialogsElemets = props.dialogsPage.dialogsData.map((d) => <DialogsItem name={d.name} id={d.id} activDialogAC={props.activDialogAC} />)
         let messageElements = props.dialogsPage.messagesData.map((m) => <MessageItem id={m.id} message={m.message} />)
         const addNewMessage = (values) => {
                 props.addMessage(values.newMessageBody)
         }
-        debugger
         return (
                 <div className='dialogs-container'>
                         <div className='dialogue-with-the-user'>
-                               <DialogueWithTheUser activeDialog={props.dialogsPage.activeDialog}/> 
+                                <DialogueWithTheUser activeDialog={props.dialogsPage.activeDialog} />
                         </div>
-                        <hr className='line'/>
                         <div className='dialogs'>
 
                                 <div className='message-block'>
                                         <div>
                                                 {messageElements}
                                         </div>
-                                        <hr className='line'/>
                                         <MessageReduxForm onSubmit={addNewMessage} />
                                 </div>
                                 <div className='dialog-items'>
                                         {dialogsElemets}
-                                        <hr className='line-mini'/>
                                 </div>
                         </div>
                 </div>
@@ -51,18 +47,14 @@ const MessageForm = (props) => {
                                 validate={[required, maxLenght150]}
                                 className='add-message-input'
                         />
-                        <button>Отправить</button>
+                        <button className='add-message-button'>Отправить</button>
                 </form>
         )
 }
 
 const MessageReduxForm = reduxForm({ form: 'addMessageForm' })(MessageForm)
 
-
 export default Dialogs;
-
-
-
 
 /*  return (
                 <div className='dialogs'>

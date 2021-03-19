@@ -21,12 +21,14 @@ const ProfifeInfo = (props) => {
                                         />
                                         <div className='profile-info'>
                                                 <div className='profile-info-name'>{props.profile.fullName}</div>
-                                                <div className='profile-info-age'>28 лет</div>
-                                                <div className='profile-info-gender'>мужчина</div>
+                                                <div className='profile-info-item'>28 лет</div>
+                                                <div className='profile-info-item'>мужчина</div>
                                         </div>
-                                        {props.isOwner && <input type={'file'} className='photosProfile' onChange={addPhoto} />}
+                                        <div className='photos-profile'>
+                                                {props.isOwner && <input type={'file'} id='file' onChange={addPhoto} />}              {/*чтобы привязать label к input мы задаём for по id, которыйзадан input-у*/}
+                                                <label for='file'>Добавить аватар</label>
+                                        </div>
                                 </div>
-                                <hr className='line' />
                                 <ProfileStatusHook status={props.status} updateUserStatusTC={props.updateUserStatusTC} />
                         </div>
         );

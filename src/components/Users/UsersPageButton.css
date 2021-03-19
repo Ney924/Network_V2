@@ -10,15 +10,17 @@
         width: 35px;
         margin-left: 5px;
         border: none;
-        background-color: rgb(127, 185, 247);
-        color: honeydew;
+        background-color: rgb(102, 161, 238);
+        color: rgb(255, 255, 255);
         border-radius: 5px;
-        border: rgb(217, 217, 218) solid 1px;
+}
+.one-button-page:hover {
+        transform: scale(1.05, 1.05);
 }
 .portion-button{
         width:402px
 }
 .next-portion {
         width: 85px;
-        background-color: rgb(127, 185, 247);
+        background-color: rgb(102, 161, 238);
 }

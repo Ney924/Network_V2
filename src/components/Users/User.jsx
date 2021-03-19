@@ -6,7 +6,7 @@ import noAvatar from '../image/no_avatar.png';
 let User = (props) => {
         let user = props.usersData;
         return (
-                <div className='users' key={user.id}>
+                <div className='user' key={user.id}>
                         <div className='users-avatar'>
                                 <NavLink to={'/profile/' + user.id}>
                                         <div> {user.photos.small == null ? <img src={noAvatar} /> : <img src={user.photos.small} />} </div>

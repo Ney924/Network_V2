@@ -5,14 +5,15 @@
         align-items: center;
         padding: 0 20px 0 20px ;
         justify-content: space-between;
+        border-bottom: rgb(83, 83, 83) solid 1px;
 }
 .dialogs-header-user {
-        font-size: 18px;
-        font-weight: 600;
+        font-size: 16px;
+        font-weight: 500;
         color: rgb(83, 83, 83);
-        font-family: Arial, Helvetica, sans-serif;
 }
 .dialogs-header-online {
-        color: rgb(6, 185, 36);
+        color: rgb(19, 185, 46);
         font-weight: 600;
+        font-size: 13px;
 }

@@ -1,68 +1,87 @@
 .profile {
-        border: rgb(217, 217, 218) solid 1px;
         border-radius: 3px;
         background-color: rgb(255, 255, 255);
+        box-shadow: 0.5rem 0.5rem 1.5rem 0rem rgba(0,0,0,0.2);
+        padding: 20px;
 }
-
-
-.profile-info::before {
-        background-image: url(https://zg66.ru/images/2020/07/15/black-sea_obl.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-}
-
 .description {
-        padding-left: 20px;
         display: grid;
         grid-template-columns: 1fr 2fr;
         width: 600px;
 }
-
 .ava {
         width: 180px;
         height: 180px;
         margin: 20px;
-        border-radius: 50px;
+        border-radius: 90px;
         box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
-
 .profile-info {
         color: rgb(65, 65, 65);
-        font-family: Arial, Helvetica, sans-serif;
         font-weight: 600;
         padding: 1rem 0 0 2rem;
-
 }
-
 .profile-info-name {
         font-size: 24px;
         padding-top: 20px;
 }
-
-.profile-info-age {
-        font-size: 20px;
-        padding-top: 1rem;
-}
-
-.profile-info-gender {
+.profile-info-item {
         font-size: 16px;
         padding-top: 1rem;
 }
-
 .profile-status {
         padding-top: 10px;
-        padding-left: 40px;
-        font-size: 18px;
-        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
         color:  rgb(65, 65, 65);
-        margin-bottom: 10px;
+        border-top: rgb(131, 131, 131) solid 1px;
 }
-
 .line {
         margin: 0 15px 0 15px;
-        height: 1px;
+        height: 0px;
+        color:  rgb(65, 65, 65);
 }
-
 .photosProfile {
         margin: 10px;
 }
+.photos-profile {
+        display: flex;
+        justify-content: center;
+}
+
+.photos-profile input {
+        margin: 10px 0 10px 0;
+        height: 0.1px;
+        width: 0.1px;
+        overflow: hidden;
+        opacity: 0;
+}
+
+.photos-profile label {
+        color: white !important;
+        background-color: rgb(102, 161, 238);
+        margin: 0 10px 10px 10px;
+        padding: 5px 10px 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+}
+
+.photos-profile label:hover {
+        transform: scale(1.05, 1.05);
+}
+
+.profile-status-change {
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+        grid-gap: 10px;
+}
+
+.profile-status-change button {
+        border: none;
+        background-color: rgb(102, 161, 238);
+        border-radius: 5px;
+        color: white;
+}
+.profile-status-change button:hover {
+        transform: scale(1.05, 1.05);
+}
+

@@ -1,4 +1,8 @@
 .dialigs-item{
-        padding: 15px 0 0 10px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 10px 0 0 10px;
+}
+.dialigs-item:hover {
+        transition: .6s ease-in;
+        padding: 10px 0 0 30px;
+        font-weight: 600;
 }

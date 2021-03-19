@@ -39,7 +39,7 @@ const UsersPageButton = (props) => {
                                 onClick={() => setPortionNumber(portionNumber + 1)}
                                 disabled={portionNumber === portionCount}
                         >
-                                Следующие
+                                Дальше
                         </button>
                 </div>)
 }

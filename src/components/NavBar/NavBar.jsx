@@ -15,15 +15,6 @@ const NavBar = () => {
                         <div className='item'>
                                 <NavLink to='/users' activeClassName='active-link'>Друзья</NavLink>
                         </div>
-                        <div className='item'>
-                                <NavLink to='/news' activeClassName='active-link'>Новости</NavLink>
-                        </div>
-                        <div className='item'>
-                                <NavLink to='/music' activeClassName='active-link'>Музыка</NavLink>
-                        </div>
-                        <div className='item'>
-                                <NavLink to='/settings' activeClassName='active-link'>Настройки</NavLink>
-                        </div>
                 </nav>
         );
 }

@@ -1,9 +1,8 @@
 .posts {
-  margin-top: 5px;
-        color: rgb(73, 121, 209);
-        padding-left: 20px;
-        border: rgb(217, 217, 218) solid 1px;
-        background-color: rgb(255, 255, 255);
+        color: rgb(33, 100, 223);
+        padding: 20px;
+        box-shadow: 0.5rem 0.5rem 1.5rem 0rem rgba(0,0,0,0.2);
+        border-radius: 3px;
   }
 
   .input-post {
@@ -17,5 +16,14 @@
 
   .input-post button {
           width: 80px;
+          height: 30px;
           margin-left: 15px;
+          border: none;
+          background-color: rgb(102, 161, 238);
+          border-radius: 5px;
+          color: white;
+  }
+
+  .input-post button:hover {
+        transform: scale(1.1, 1.1);
   }

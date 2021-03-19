@@ -1,13 +1,9 @@
 .post {
-  color: blue;
   padding: 10px 0 10px 0;
   display: grid;
   align-items: center;
-  border: rgb(217, 217, 218) solid 1px;
-  border-radius: 3px;
   margin: 15px 10px 15px 0;
-  background-color: rgb(241, 252, 255);
-  }
+}
 
 .avatar {
         display: grid;
@@ -19,7 +15,7 @@
 
 .avatar img {
   height: 50px;
-  border-radius: 5px;
+  border-radius: 25px;
   margin-right: 10px;
   margin-left: 10px;
 }

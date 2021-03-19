@@ -5,10 +5,10 @@ let initialState = {
         dialogsData: [
                 { id: 1, name: 'Илья' },
                 { id: 2, name: 'Анна' },
-
                 { id: 3, name: 'Алексей' },
                 { id: 4, name: 'Егор' },
                 { id: 5, name: 'Константин' },
+                { id: 5, name: 'Павел' }
         ],
         messagesData: [
                 { id: 1, message: 'Привет' },

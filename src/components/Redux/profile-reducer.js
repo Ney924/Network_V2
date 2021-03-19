@@ -45,7 +45,6 @@ const profileReducer = (state = initialState, action) => {
                                 status: action.status,
                         }
                 case ADD_PHOTO:
-                        debugger;
                         return {
                                 ...state, 
                                 profile: {...state.profile,photos: action.photos}

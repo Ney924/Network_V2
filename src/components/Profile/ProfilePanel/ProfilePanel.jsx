@@ -5,10 +5,10 @@ const ProfilePanel = (props) => {
         return (
                 <div className='profile-panel'>
                         <button>
-                                Подписки
+                                Посты
                         </button>
                         <button>
-                                Подписчики
+                                Подписки
                         </button>
                         <button>
                                 Мои фотографии
