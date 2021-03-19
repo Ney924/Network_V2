@@ -11,17 +11,16 @@ import DialogueWithTheUser from './DialogueWithTheUser/DialogueWithTheUser';
 const maxLenght150 = maxLenghtCreator(150)
 
 const Dialogs = (props) => {
-        let dialogsElemets = props.dialogsPage.dialogsData.map((d) => <DialogsItem name={d.name} id={d.id} />)
+        let dialogsElemets = props.dialogsPage.dialogsData.map((d) => <DialogsItem name={d.name} id={d.id} activDialogAC={props.activDialogAC}/>)
         let messageElements = props.dialogsPage.messagesData.map((m) => <MessageItem id={m.id} message={m.message} />)
-
         const addNewMessage = (values) => {
                 props.addMessage(values.newMessageBody)
         }
-
+        debugger
         return (
                 <div className='dialogs-container'>
                         <div className='dialogue-with-the-user'>
-                               <DialogueWithTheUser/> 
+                               <DialogueWithTheUser activeDialog={props.dialogsPage.activeDialog}/> 
                         </div>
                         <hr className='line'/>
                         <div className='dialogs'>

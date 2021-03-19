@@ -46,6 +46,7 @@
 }
 .line-mini {
         margin: 20px 15px 0 0;
+        height: 1px;
 }
 
 .add-message-input {

@@ -6,20 +6,15 @@
   'a a'
   'b c';
   margin: 0px;
-  padding: 0px;
-  background-color: white;
-  
+  padding: 0px;  
 }
-
-/* .content-board{
-        grid-area: a;
-} */
 
 .content {
   padding: 0 calc(50% - 31.25rem) 0 calc(50% - 31.25rem);
+  background-color: rgb(179, 229, 255);
   box-sizing: border-box;
   margin: 2px;
-  height: 95vh;
+  height: 100vh;
 }
 
 

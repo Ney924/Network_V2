@@ -5,7 +5,7 @@ const DialogueWithTheUser = (props) => {
         return (
                 <div className='dialogs-header'>
                         <div className='dialogs-header-user'>
-                                Имя собеседника
+                                {props.activeDialog || 'Собеседник'}
                        </div>
                         <div className='dialogs-header-online'>
                                 Online

@@ -1,10 +1,11 @@
 import React from 'react';
-import './Preloader.css'
+import './Preloader.css';
+import PreloaderGif from './../../image/Loading_progress.gif';
 
 let Preloader = () => {
         return (
                 <div className='preloader'>
-                         <img src='https://thumbs.gfycat.com/FatherlyGoodAustrianpinscher-size_restricted.gif'/>
+                         <img src={PreloaderGif}/>
                 </div>
         );
 }

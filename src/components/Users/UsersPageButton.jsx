@@ -26,6 +26,7 @@ const UsersPageButton = (props) => {
                                 {pages.filter(p => p >= leftBorder && p <= rightBorder).map(c => {
                                         return (
                                                 <button
+                                                        key={c}
                                                         className='one-button-page'
                                                         onClick={() => props.onPageChanged(c)}>
                                                         {c}

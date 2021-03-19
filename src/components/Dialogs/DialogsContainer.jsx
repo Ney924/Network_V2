@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialogs from './Dialogs';
-import {addMessageAC, } from "../Redux/dialogs-reducer";
+import {addMessageAC, activDialogAC} from "../Redux/dialogs-reducer";
 import { connect } from 'react-redux';
 import { withAuthRedirect } from '../hoc/AuthRedirect';
 //import { compose } from 'redux';
@@ -15,6 +15,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
         return {
                 addMessage: (newMessageBody) => {dispatch(addMessageAC(newMessageBody))},
+                activDialogAC: (id) => {dispatch(activDialogAC(id))},
         }
 }
 

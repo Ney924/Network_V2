@@ -4,11 +4,15 @@ import './DialogsItem.css';
 
 const DialogsItem = (props) => {
 
-        let Path = '/dialogs/' + props.id;
+        const Path = '/dialogs/' + props.id;
+
+        const dialogueWith = () => {
+                props.activDialogAC(props.id)
+        }
 
         return (
                 <div className='dialigs-item'>
-                        <NavLink to={Path}>{props.name}</NavLink>
+                        <NavLink to={Path} onClick={dialogueWith}> {props.name} </NavLink>
                 </div>
         )
 }
