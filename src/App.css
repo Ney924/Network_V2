@@ -4,21 +4,20 @@
     }
 
 .app-wrapper {
-  display: grid;
+  /* display: grid;
   grid-template-rows: min-content 1fr;
-  grid-template-columns: 200px 10fr;
-  grid-template-areas: 
-  'a a'
-  'b c';
-  grid-gap: 10px;
+  grid-gap: 10px; */
   margin: 0px;
   padding: 0px;  
   height: 100vh;
 }
 
-.content {
-  padding: 0 calc(50% - 31.25rem) 0 calc(50% - 31.25rem);
-  box-sizing: border-box;
+.content-page {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        padding: 60px calc(50% - 31.25rem) 8px calc(50% - 31.25rem);
+        box-sizing: border-box;
+        height: 100%;
 }
 
 

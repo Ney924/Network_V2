@@ -1,9 +1,9 @@
 import React from 'react';
-import './NavBar.css'
+import './NavMenu.css'
 import { NavLink } from 'react-router-dom'
 
 
-const NavBar = () => {
+const NavMenu = () => {
         return (
                 <nav className='nav'>
                         <div className='item'>
@@ -20,4 +20,4 @@ const NavBar = () => {
 }
 
 
-export default NavBar;
+export default NavMenu;

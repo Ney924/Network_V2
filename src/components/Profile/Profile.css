@@ -1,4 +1,5 @@
-.profile-content {
-        grid-area: c;
-      }
+.profile-page {
+        display: grid;
+        grid-template-rows: min-content min-content min-content;
+}
       

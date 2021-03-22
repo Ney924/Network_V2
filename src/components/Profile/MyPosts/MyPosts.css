@@ -5,10 +5,10 @@
         border-radius: 3px;
   }
 
-  .input-post {
-          display: grid;
-          grid-template-columns: min-content min-content;
-  }
+.input-post {
+        display: grid;
+        grid-template-columns: min-content min-content;
+}
 
   .input-post input {
         width: 300px;

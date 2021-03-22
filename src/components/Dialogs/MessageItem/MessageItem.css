@@ -1,8 +1,12 @@
-.message-item {
+.messages {
         padding: 10px 20px 5px 20px;
         display: grid;
         grid-template-rows: 8fr 2fr;
         width: max-content;
+}
+.message-item {
+        display: flex;
+        justify-content: flex-end;
 }
 .add-message input{
         border: none;

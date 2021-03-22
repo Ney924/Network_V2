@@ -1,16 +1,22 @@
 .header {
-        grid-area: a;
+        position: fixed;
+        width: 100%;
+        background-color: rgb(102, 161, 238);
+        height: 50px;
+        box-shadow: 0.2rem 0.2rem 0.2rem 0rem rgba(0,0,0,0.2);
+        display: grid;
+        align-items: center;
+        top: 0
+      }
+
+.header-content {
+        padding: 0 calc(50% - 31.25rem) 0 calc(50% - 31.25rem);
         display: grid;
         grid-template-columns: min-content max-content min-content;
-        background-color: rgb(102, 161, 238);
         display: flex;
-        margin: 0 0 2px 0;
         align-items: center;
         justify-content: space-between;
-        border-radius: 3px;
-        height: 50px;
-        box-shadow: 0.5rem 0.2rem 1.5rem 0rem rgba(0,0,0,0.2);
-      }
+}
       
 .header img {
         height: 40px;
@@ -28,6 +34,7 @@
         display: flex;
         align-items: center;
 }
+
 
 .login-button:hover {
         transition: .2s;

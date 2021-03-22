@@ -5,15 +5,15 @@ import { compose } from 'redux';
 import { initialazeAppTC } from './components/Redux/app-reducer';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
-import NavBar from './components/NavBar/NavBar';
+import NavMenu from './components/NavMenu/NavMenu';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Login from './components/Login/Login';
 import Preloader from './components/common/preloader/Preloader';
-const ProfileContainer = React.lazy(()=>import('./components/Profile/ProfileContainer'));
-const DialogsContainer = React.lazy(()=>import('./components/Dialogs/DialogsContainer'));
-const UsersContainer = React.lazy(()=>import('./components/Users/UsersContainer'));
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
 class App extends React.Component {
         componentDidMount() {
@@ -21,24 +21,24 @@ class App extends React.Component {
         }
         render() {
                 if (!this.props.initialize) {
-                        return <Preloader/>
+                        return <Preloader />
                 }
                 return (
-                        <div className="app-wrapper content">
+                        <div className="app-wrapper">
                                 <HeaderContainer />
-                                <NavBar />
-                                <div className='content-board'>
+                                <div className='content-page'>
+                                        <NavMenu />
                                         <Route
                                                 path='/profile/:userId?'
-                                                render={() => <Suspense fallback={<Preloader/>}> <ProfileContainer /> </Suspense>} 
+                                                render={() => <Suspense fallback={<Preloader />}> <ProfileContainer /> </Suspense>}
                                         />
                                         <Route
                                                 path='/dialogs'
-                                                render={() => <Suspense fallback={<Preloader/>}> <DialogsContainer /> </Suspense>} 
+                                                render={() => <Suspense fallback={<Preloader />}> <DialogsContainer /> </Suspense>}
                                         />
                                         <Route
                                                 path='/users'
-                                                render={() => <Suspense fallback={<Preloader/>}> <UsersContainer /> </Suspense>}  
+                                                render={() => <Suspense fallback={<Preloader />}> <UsersContainer /> </Suspense>}
                                         />
                                         <Route path='/news' component={News} />
                                         <Route path='/music' component={Music} />

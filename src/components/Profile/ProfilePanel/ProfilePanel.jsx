@@ -4,13 +4,13 @@ import './ProfilePanel.css'
 const ProfilePanel = (props) => {
         return (
                 <div className='profile-panel'>
-                        <button>
+                        <button onClick={props.setTabPost}>
                                 Посты
                         </button>
                         <button>
                                 Подписки
                         </button>
-                        <button>
+                        <button onClick={props.setTabPhoto}>
                                 Мои фотографии
                         </button>
                         <button className='right-button'>
