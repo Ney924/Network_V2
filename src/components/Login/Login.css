@@ -22,7 +22,7 @@
         border-radius: 5px;
         color:rgb(92, 91, 91);
         box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-        height: 400px;
+        height: max-content;
 }
 
 .login-user {
@@ -40,8 +40,12 @@
         padding: 10px;
         margin: 10px;
         width: 250px;
-        border: rgb(221, 48, 48) solid 3px;
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(221, 48, 48);
         font-weight: 550;
         text-align: center;
+        color: white;
+}
+
+.captcha img {
+        height: 50px;
 }
