@@ -1,0 +1,7 @@
+.item {
+        display: grid;
+        grid-template-columns: 180px 2fr;
+        grid-gap: 15px;
+        padding: 5px;
+        font-size: 13px;
+}

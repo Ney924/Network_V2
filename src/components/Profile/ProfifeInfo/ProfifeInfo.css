@@ -7,28 +7,30 @@
 .description {
         display: grid;
         grid-template-columns: 1fr 2fr;
-        width: 600px;
+        width: 700px;
 }
 .ava {
+        display: grid;
+        justify-self: center;
         width: 180px;
         height: 180px;
         margin: 20px;
         border-radius: 90px;
         box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
-.profile-info {
-        color: rgb(65, 65, 65);
-        font-weight: 600;
-        padding: 1rem 0 0 2rem;
+.profile-info-button {
+        margin-left: 180px;
+        height: 30px;
+        width: 125px;
+        border: none;
+        background-color: rgb(102, 161, 238);
+        border-radius: 5px;
+        color: white;
 }
-.profile-info-name {
-        font-size: 24px;
-        padding-top: 20px;
+.profile-info-button:hover {
+        transform: scale(1.1, 1.1);
 }
-.profile-info-item {
-        font-size: 16px;
-        padding-top: 1rem;
-}
+
 .profile-status {
         padding-top: 10px;
         font-size: 15px;

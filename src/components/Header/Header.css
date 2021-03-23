@@ -52,3 +52,14 @@
         color: rgb(58, 58, 58);
         border-radius: 5px;
 }
+
+.name-app {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        color: white;
+}
+.name-app div {
+        color: white;
+        padding-left: 20px;
+}

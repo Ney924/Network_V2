@@ -21,6 +21,7 @@ const Profile = (props) => {
 					updateUserStatusTC={props.updateUserStatusTC}
 					isOwner={props.isOwner}
 					saveFotoTC={props.saveFotoTC}
+                                        saveProfileDataTC={props.saveProfileDataTC}
 				/>
 				<ProfilePanel setTabPost={setTabPost} setTabPhoto={setTabPhoto} />
 				{tab == 1 ? <MyPostsContainer /> : <MyPhotos photoData={props.photoData}/>}

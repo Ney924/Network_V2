@@ -47,6 +47,10 @@ export const profileAPI = {
                 )
                 .then(response => {return response.data})
         },
+        saveProfileData (profile) {
+                return instance.put(`profile`, profile)
+                .then(response => {return response.data})
+        }
 }
 
 export const authAPI = {
