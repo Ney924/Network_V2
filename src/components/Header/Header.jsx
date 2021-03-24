@@ -9,7 +9,7 @@ const Header = (props) => {
                         <div className='header-content'>
                                 <div className='name-app'>
                                         <img src={Logo} />
-                                <div>SpaseCats</div>
+                                <div>SpaceCats</div>
                                 </div>
                                 <div className='login-blok'>
                                         {

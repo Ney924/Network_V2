@@ -19,9 +19,9 @@ const ProfileDataUsers = (props) => {
 				<div className='profile-info-item'>мужчина</div>
 			</div>
 			<div className='profile-contacts'>
-				<div className='profile-info-item'>Ищу работу: {props.profile.lookingForAJob ? 'да' : 'нет'}</div>
-				<div className='profile-info-item'>Мои умения и навыки: {props.profile.lookingForAJobDescription}</div>
-				<div className='profile-info-item'>Обо мне: {props.profile.aboutMe}</div>
+				<div className='profile-info-item-data'> <b>Ищу работу? </b> {props.profile.lookingForAJob ? 'да' : 'нет'}</div>
+				<div className='profile-info-item-data'> <b>Мои умения и навыки: </b> {props.profile.lookingForAJobDescription}</div>
+				<div className='profile-info-item-data'> <b>Обо мне:</b> {props.profile.aboutMe}</div>
 				<div className='profile-info-item-contacts'>{Object.keys(props.profile.contacts).map(key => {
 					return <Contacts key={key} contacsTitle={key} contactsValue={props.profile.contacts[key]} />
 				})}

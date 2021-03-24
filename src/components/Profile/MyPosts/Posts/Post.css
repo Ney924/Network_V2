@@ -24,6 +24,7 @@
   margin-right: 10px;
   display: flex;
   align-items: center;
+  word-wrap: break-word;
 }
 
 .like {

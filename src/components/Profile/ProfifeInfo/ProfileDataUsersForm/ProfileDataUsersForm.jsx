@@ -37,7 +37,7 @@ const ProfileDataUsersForm = (props) => {
 
 			<div>
 				<button className='profile-info-button' >Сохранить</button>
-				{props.error && <div>{props.error}</div>}
+				{props.error && <div className='profile-data-error'>{props.error}</div>}
 			</div>
 
 		</form>
